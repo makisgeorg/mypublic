@@ -10,8 +10,18 @@
             width: 80%;
             margin: 0 auto;
         }
+        .gauge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gauge-item {
+            width: 20%;
+            min-width: 200px;
+            text-align: center;
+        }
         .slider-container {
-            margin: 20px 0;
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -19,10 +29,7 @@
     <div class="container">
         <h1>Cyclopt Training Progress Dashboard</h1>
         <div id="radar-chart"></div>
-        <div id="gauges"></div>
-        <div id="sliders">
-            <!-- Sliders will be added here dynamically -->
-        </div>
+        <div id="gauges" class="gauge-container"></div>
     </div>
     
     <script>
@@ -80,38 +87,35 @@
             const gaugeLayout = { margin: { t: 0, b: 0 } };
             const gaugeDiv = document.createElement('div');
             gaugeDiv.id = `gauge-${index}`;
+            gaugeDiv.className = 'gauge-item';
             document.getElementById('gauges').appendChild(gaugeDiv);
             Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
-        }
 
-        function createSliders() {
-            skills.forEach((skill, index) => {
-                const sliderContainer = document.createElement('div');
-                sliderContainer.className = 'slider-container';
-                const sliderLabel = document.createElement('label');
-                sliderLabel.innerHTML = `${skill} Level: <span id="slider-value-${index}">${afterTraining[index]}</span>`;
-                const slider = document.createElement('input');
-                slider.type = 'range';
-                slider.min = '0';
-                slider.max = '5';
-                slider.step = '0.5';
-                slider.value = afterTraining[index];
-                slider.oninput = function () {
-                    afterTraining[index] = parseFloat(this.value);
-                    document.getElementById(`slider-value-${index}`).innerText = this.value;
-                    createRadarChart(afterTraining);
-                    Plotly.restyle(`gauge-${index}`, 'value', [this.value]);
-                };
-                sliderContainer.appendChild(sliderLabel);
-                sliderContainer.appendChild(slider);
-                document.getElementById('sliders').appendChild(sliderContainer);
-            });
+            // Create slider
+            const sliderContainer = document.createElement('div');
+            sliderContainer.className = 'slider-container';
+            const sliderLabel = document.createElement('label');
+            sliderLabel.innerHTML = `${skill} Level: <span id="slider-value-${index}">${value}</span>`;
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.min = '0';
+            slider.max = '5';
+            slider.step = '0.5';
+            slider.value = value;
+            slider.oninput = function () {
+                afterTraining[index] = parseFloat(this.value);
+                document.getElementById(`slider-value-${index}`).innerText = this.value;
+                createRadarChart(afterTraining);
+                Plotly.restyle(`gauge-${index}`, 'value', [this.value]);
+            };
+            sliderContainer.appendChild(sliderLabel);
+            sliderContainer.appendChild(slider);
+            gaugeDiv.appendChild(sliderContainer);
         }
 
         function init() {
             createRadarChart(afterTraining);
             skills.forEach((skill, index) => createGauge(skill, afterTraining[index], index));
-            createSliders();
         }
 
         init();
