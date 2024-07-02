@@ -10,22 +10,16 @@
             width: 80%;
             margin: 0 auto;
         }
-        .gauge-slider-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .gauge-slider-table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .gauge-item {
-            flex: 1 1 30%;
-            min-width: 300px;
-            max-width: 300px;
-            margin: 20px;
+        .gauge-slider-table td {
+            vertical-align: top;
+            padding: 10px;
             text-align: center;
         }
         .slider-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             margin-top: 10px;
         }
         .slider-container label {
@@ -37,7 +31,10 @@
     <div class="container">
         <h1>Cyclopt Training Progress Dashboard</h1>
         <div id="radar-chart"></div>
-        <div id="gauges" class="gauge-slider-container"></div>
+        <table class="gauge-slider-table">
+            <tr id="gauges-row-1"></tr>
+            <tr id="gauges-row-2"></tr>
+        </table>
     </div>
     
     <script>
@@ -94,12 +91,8 @@
             ];
             const gaugeLayout = { margin: { t: 0, b: 0 } };
 
-            const gaugeContainer = document.createElement('div');
-            gaugeContainer.className = 'gauge-item';
-
             const gaugeDiv = document.createElement('div');
             gaugeDiv.id = `gauge-${index}`;
-            gaugeContainer.appendChild(gaugeDiv);
 
             const sliderContainer = document.createElement('div');
             sliderContainer.className = 'slider-container';
@@ -120,8 +113,16 @@
 
             sliderContainer.appendChild(sliderLabel);
             sliderContainer.appendChild(slider);
-            gaugeContainer.appendChild(sliderContainer);
-            document.getElementById('gauges').appendChild(gaugeContainer);
+
+            const tableCell = document.createElement('td');
+            tableCell.appendChild(gaugeDiv);
+            tableCell.appendChild(sliderContainer);
+
+            if (index < 4) {
+                document.getElementById('gauges-row-1').appendChild(tableCell);
+            } else {
+                document.getElementById('gauges-row-2').appendChild(tableCell);
+            }
 
             Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
         }
