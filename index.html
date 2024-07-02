@@ -7,22 +7,26 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         .container {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
         }
-        .gauge-slider-table {
-            width: 100%;
-            border-collapse: collapse;
+        .gauge-slider-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
-        .gauge-slider-table td {
-            vertical-align: top;
-            padding: 10px;
+        .gauge-item {
+            flex: 1 1 30%;
+            max-width: 300px;
+            min-width: 200px;
+            margin: 10px;
             text-align: center;
         }
         .slider-container {
             margin-top: 10px;
         }
         .slider-container label {
+            display: block;
             margin-bottom: 5px;
         }
     </style>
@@ -31,10 +35,7 @@
     <div class="container">
         <h1>Cyclopt Training Progress Dashboard</h1>
         <div id="radar-chart"></div>
-        <table class="gauge-slider-table">
-            <tr id="gauges-row-1"></tr>
-            <tr id="gauges-row-2"></tr>
-        </table>
+        <div id="gauges" class="gauge-slider-container"></div>
     </div>
     
     <script>
@@ -114,15 +115,12 @@
             sliderContainer.appendChild(sliderLabel);
             sliderContainer.appendChild(slider);
 
-            const tableCell = document.createElement('td');
-            tableCell.appendChild(gaugeDiv);
-            tableCell.appendChild(sliderContainer);
+            const gaugeItem = document.createElement('div');
+            gaugeItem.className = 'gauge-item';
+            gaugeItem.appendChild(gaugeDiv);
+            gaugeItem.appendChild(sliderContainer);
 
-            if (index < 4) {
-                document.getElementById('gauges-row-1').appendChild(tableCell);
-            } else {
-                document.getElementById('gauges-row-2').appendChild(tableCell);
-            }
+            document.getElementById('gauges').appendChild(gaugeItem);
 
             Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
         }
