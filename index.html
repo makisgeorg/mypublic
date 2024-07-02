@@ -16,18 +16,12 @@
             justify-content: space-around;
         }
         .gauge-item {
-            flex: 1 1 30%;
+            flex: 1 1 45%;
             max-width: 300px;
             min-width: 200px;
             margin: 10px;
             text-align: center;
-        }
-        .slider-container {
-            margin-top: 10px;
-        }
-        .slider-container label {
-            display: block;
-            margin-bottom: 5px;
+            position: relative;
         }
     </style>
 </head>
@@ -39,9 +33,9 @@
     </div>
     
     <script>
-        const skills = ['SQL Injection', 'XSS', 'CSRF', 'Authentication', 'Authorization', 'Encryption', 'Logging', 'Monitoring'];
-        const beforeTraining = [3, 2, 4, 3, 2, 3, 2, 3];
-        let afterTraining = [5, 4, 5, 4, 4, 5, 4, 5];
+        const skills = ['Authentication', 'Authorization', 'Monitoring'];
+        const beforeTraining = [3, 2, 3];
+        let afterTraining = [4, 4, 4];
 
         function createRadarChart(afterTraining) {
             const radarData = [
@@ -94,35 +88,42 @@
 
             const gaugeDiv = document.createElement('div');
             gaugeDiv.id = `gauge-${index}`;
-
-            const sliderContainer = document.createElement('div');
-            sliderContainer.className = 'slider-container';
-            const sliderLabel = document.createElement('label');
-            sliderLabel.innerHTML = `${skill} Level: <span id="slider-value-${index}">${value}</span>`;
-            const slider = document.createElement('input');
-            slider.type = 'range';
-            slider.min = '0';
-            slider.max = '5';
-            slider.step = '0.5';
-            slider.value = value;
-            slider.oninput = function () {
-                afterTraining[index] = parseFloat(this.value);
-                document.getElementById(`slider-value-${index}`).innerText = this.value;
-                createRadarChart(afterTraining);
-                Plotly.restyle(`gauge-${index}`, 'value', [this.value]);
-            };
-
-            sliderContainer.appendChild(sliderLabel);
-            sliderContainer.appendChild(slider);
+            gaugeDiv.style.touchAction = 'none';
 
             const gaugeItem = document.createElement('div');
             gaugeItem.className = 'gauge-item';
             gaugeItem.appendChild(gaugeDiv);
-            gaugeItem.appendChild(sliderContainer);
 
             document.getElementById('gauges').appendChild(gaugeItem);
 
             Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
+
+            // Add touch event listener
+            gaugeDiv.addEventListener('pointerdown', function (event) {
+                updateGaugeValue(event, gaugeDiv, index);
+                gaugeDiv.setPointerCapture(event.pointerId);
+                gaugeDiv.addEventListener('pointermove', pointerMoveHandler);
+                gaugeDiv.addEventListener('pointerup', pointerUpHandler);
+            });
+
+            function pointerMoveHandler(event) {
+                updateGaugeValue(event, gaugeDiv, index);
+            }
+
+            function pointerUpHandler(event) {
+                gaugeDiv.removeEventListener('pointermove', pointerMoveHandler);
+                gaugeDiv.removeEventListener('pointerup', pointerUpHandler);
+                gaugeDiv.releasePointerCapture(event.pointerId);
+            }
+
+            function updateGaugeValue(event, gaugeDiv, index) {
+                const rect = gaugeDiv.getBoundingClientRect();
+                const x = event.clientX - rect.left; // x position within the element
+                const value = Math.max(0, Math.min(5, (x / rect.width) * 5));
+                afterTraining[index] = value;
+                createRadarChart(afterTraining);
+                Plotly.restyle(gaugeDiv.id, 'value', [value]);
+            }
         }
 
         function init() {
