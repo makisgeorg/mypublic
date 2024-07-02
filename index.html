@@ -1,12 +1,120 @@
-echo "<!DOCTYPE html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>My Streamlit App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclopt Training Progress Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .slider-container {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>My Streamlit App</h1>
-    <iframe src='https://mypublic-k3tk3pz2yrpnjqh7zhsmi5.streamlit.app/' width='100%' height='800px'></iframe>
+    <div class="container">
+        <h1>Cyclopt Training Progress Dashboard</h1>
+        <div id="radar-chart"></div>
+        <div id="gauges"></div>
+        <div id="sliders">
+            <!-- Sliders will be added here dynamically -->
+        </div>
+    </div>
+    
+    <script>
+        const skills = ['SQL Injection', 'XSS', 'CSRF', 'Authentication', 'Authorization', 'Encryption', 'Logging', 'Monitoring'];
+        const beforeTraining = [3, 2, 4, 3, 2, 3, 2, 3];
+        let afterTraining = [5, 4, 5, 4, 4, 5, 4, 5];
+
+        function createRadarChart(afterTraining) {
+            const radarData = [
+                {
+                    type: 'scatterpolar',
+                    r: beforeTraining,
+                    theta: skills,
+                    fill: 'toself',
+                    name: 'Before Training'
+                },
+                {
+                    type: 'scatterpolar',
+                    r: afterTraining,
+                    theta: skills,
+                    fill: 'toself',
+                    name: 'After Training'
+                }
+            ];
+            const radarLayout = {
+                polar: {
+                    radialaxis: {
+                        visible: true,
+                        range: [0, 5]
+                    }
+                },
+                title: "Skill Levels Before and After Cyclopt Training"
+            };
+            Plotly.newPlot('radar-chart', radarData, radarLayout);
+        }
+
+        function createGauge(skill, value, index) {
+            const gaugeData = [
+                {
+                    type: 'indicator',
+                    mode: 'gauge+number+delta',
+                    value: value,
+                    delta: { reference: beforeTraining[index], increasing: { color: 'green' } },
+                    gauge: {
+                        axis: { range: [0, 5] },
+                        bar: { color: 'darkblue' },
+                        steps: [
+                            { range: [0, beforeTraining[index]], color: 'lightgray' },
+                            { range: [beforeTraining[index], 5], color: 'lightgreen' }
+                        ]
+                    },
+                    title: { text: skill }
+                }
+            ];
+            const gaugeLayout = { margin: { t: 0, b: 0 } };
+            const gaugeDiv = document.createElement('div');
+            gaugeDiv.id = `gauge-${index}`;
+            document.getElementById('gauges').appendChild(gaugeDiv);
+            Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
+        }
+
+        function createSliders() {
+            skills.forEach((skill, index) => {
+                const sliderContainer = document.createElement('div');
+                sliderContainer.className = 'slider-container';
+                const sliderLabel = document.createElement('label');
+                sliderLabel.innerHTML = `${skill} Level: <span id="slider-value-${index}">${afterTraining[index]}</span>`;
+                const slider = document.createElement('input');
+                slider.type = 'range';
+                slider.min = '0';
+                slider.max = '5';
+                slider.step = '0.5';
+                slider.value = afterTraining[index];
+                slider.oninput = function () {
+                    afterTraining[index] = parseFloat(this.value);
+                    document.getElementById(`slider-value-${index}`).innerText = this.value;
+                    createRadarChart(afterTraining);
+                    Plotly.restyle(`gauge-${index}`, 'value', [this.value]);
+                };
+                sliderContainer.appendChild(sliderLabel);
+                sliderContainer.appendChild(slider);
+                document.getElementById('sliders').appendChild(sliderContainer);
+            });
+        }
+
+        function init() {
+            createRadarChart(afterTraining);
+            skills.forEach((skill, index) => createGauge(skill, afterTraining[index], index));
+            createSliders();
+        }
+
+        init();
+    </script>
 </body>
-</html>" > index.html
+</html>
