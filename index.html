@@ -25,9 +25,11 @@
         .slider-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            margin: 20px;
+            margin-top: 10px;
+        }
+        .slider-container label {
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -95,6 +97,10 @@
             const gaugeContainer = document.createElement('div');
             gaugeContainer.className = 'gauge-item';
 
+            const gaugeDiv = document.createElement('div');
+            gaugeDiv.id = `gauge-${index}`;
+            gaugeContainer.appendChild(gaugeDiv);
+
             const sliderContainer = document.createElement('div');
             sliderContainer.className = 'slider-container';
             const sliderLabel = document.createElement('label');
@@ -114,11 +120,6 @@
 
             sliderContainer.appendChild(sliderLabel);
             sliderContainer.appendChild(slider);
-
-            const gaugeDiv = document.createElement('div');
-            gaugeDiv.id = `gauge-${index}`;
-
-            gaugeContainer.appendChild(gaugeDiv);
             gaugeContainer.appendChild(sliderContainer);
             document.getElementById('gauges').appendChild(gaugeContainer);
 
