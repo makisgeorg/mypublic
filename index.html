@@ -1,12 +1,137 @@
-echo "<!DOCTYPE html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>My Streamlit App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclopt Training Progress Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .gauge-slider-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gauge-item {
+            flex: 1 1 45%;
+            max-width: 300px;
+            min-width: 200px;
+            margin: 10px;
+            text-align: center;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
-    <h1>My Streamlit App</h1>
-    <iframe src='https://mypublic-k3tk3pz2yrpnjqh7zhsmi5.streamlit.app/' width='100%' height='800px'></iframe>
+    <div class="container">
+        <h1>Cyclopt Training Progress Dashboard</h1>
+        <div id="radar-chart"></div>
+        <div id="gauges" class="gauge-slider-container"></div>
+    </div>
+    
+    <script>
+        const skills = ['Authentication', 'Authorization', 'Encryption', 'Monitoring'];
+        const beforeTraining = [3, 2, 3, 3];
+        let afterTraining = [4, 4, 5, 4];
+
+        function createRadarChart(afterTraining) {
+            const radarData = [
+                {
+                    type: 'scatterpolar',
+                    r: beforeTraining,
+                    theta: skills,
+                    fill: 'toself',
+                    name: 'Before Training'
+                },
+                {
+                    type: 'scatterpolar',
+                    r: afterTraining,
+                    theta: skills,
+                    fill: 'toself',
+                    name: 'After Training'
+                }
+            ];
+            const radarLayout = {
+                polar: {
+                    radialaxis: {
+                        visible: true,
+                        range: [0, 5]
+                    }
+                },
+                title: "Skill Levels Before and After Cyclopt Training"
+            };
+            Plotly.newPlot('radar-chart', radarData, radarLayout);
+        }
+
+        function createGauge(skill, value, index) {
+            const gaugeData = [
+                {
+                    type: 'indicator',
+                    mode: 'gauge+number+delta',
+                    value: value,
+                    delta: { reference: beforeTraining[index], increasing: { color: 'green' } },
+                    gauge: {
+                        axis: { range: [0, 5] },
+                        bar: { color: 'darkblue' },
+                        steps: [
+                            { range: [0, beforeTraining[index]], color: 'lightgray' },
+                            { range: [beforeTraining[index], 5], color: 'lightgreen' }
+                        ]
+                    },
+                    title: { text: skill }
+                }
+            ];
+            const gaugeLayout = { margin: { t: 0, b: 0 } };
+
+            const gaugeDiv = document.createElement('div');
+            gaugeDiv.id = `gauge-${index}`;
+            gaugeDiv.style.touchAction = 'none';
+
+            const gaugeItem = document.createElement('div');
+            gaugeItem.className = 'gauge-item';
+            gaugeItem.appendChild(gaugeDiv);
+
+            document.getElementById('gauges').appendChild(gaugeItem);
+
+            Plotly.newPlot(gaugeDiv.id, gaugeData, gaugeLayout);
+
+            // Add touch event listener
+            gaugeDiv.addEventListener('pointerdown', function (event) {
+                updateGaugeValue(event, gaugeDiv, index);
+                gaugeDiv.setPointerCapture(event.pointerId);
+                gaugeDiv.addEventListener('pointermove', pointerMoveHandler);
+                gaugeDiv.addEventListener('pointerup', pointerUpHandler);
+            });
+
+            function pointerMoveHandler(event) {
+                updateGaugeValue(event, gaugeDiv, index);
+            }
+
+            function pointerUpHandler(event) {
+                gaugeDiv.removeEventListener('pointermove', pointerMoveHandler);
+                gaugeDiv.removeEventListener('pointerup', pointerUpHandler);
+                gaugeDiv.releasePointerCapture(event.pointerId);
+            }
+
+            function updateGaugeValue(event, gaugeDiv, index) {
+                const rect = gaugeDiv.getBoundingClientRect();
+                const x = event.clientX - rect.left; // x position within the element
+                const value = Math.max(0, Math.min(5, (x / rect.width) * 5));
+                afterTraining[index] = value;
+                createRadarChart(afterTraining);
+                Plotly.restyle(gaugeDiv.id, 'value', [value]);
+            }
+        }
+
+        function init() {
+            createRadarChart(afterTraining);
+            skills.forEach((skill, index) => createGauge(skill, afterTraining[index], index));
+        }
+
+        init();
+    </script>
 </body>
-</html>" > index.html
+</html>
