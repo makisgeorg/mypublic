@@ -7,7 +7,7 @@ before_training = [3, 2, 4, 3, 2, 3, 2, 3]
 after_training = [5, 4, 5, 4, 4, 5, 4, 5]
 
 # Initialize the Streamlit app
-st.title("Cyclopt Training Progress Dashboard")
+st.title("Cyclopt Integration: Progress Tracking Dashboard")
 
 # Create initial radar chart
 def create_radar_chart(after_training):
@@ -16,13 +16,13 @@ def create_radar_chart(after_training):
         r=before_training,
         theta=skills,
         fill='toself',
-        name='Before Training'
+        name='Before Integration'
     ))
     fig.add_trace(go.Scatterpolar(
         r=after_training,
         theta=skills,
         fill='toself',
-        name='After Training'
+        name='After Integration'
     ))
 
     fig.update_layout(
@@ -31,7 +31,7 @@ def create_radar_chart(after_training):
                 visible=True,
                 range=[0, 5]
             )),
-        title="Skill Levels Before and After Cyclopt Training"
+        title="Skill Levels Before and After Cyclopt Integration"
     )
     return fig
 
