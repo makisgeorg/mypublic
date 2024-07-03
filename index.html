@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyclopt Training Progress Dashboard</title>
+    <title>Cyclopt Integration: Progress Tracking Dashboard</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         .container {
@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cyclopt Training Progress Dashboard</h1>
+        <h1>Cyclopt Integration: Progress Tracking Dashboard</h1>
         <div id="radar-chart"></div>
         <div id="gauges" class="gauge-slider-container"></div>
     </div>
@@ -61,7 +61,7 @@
                         range: [0, 5]
                     }
                 },
-                title: "Skill Levels Before and After Cyclopt Training"
+                title: "Skill Levels Before and After Cyclopt Integration"
             };
             Plotly.newPlot('radar-chart', radarData, radarLayout);
         }
