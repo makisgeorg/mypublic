@@ -197,45 +197,4 @@
       "start_date": {
         "year": "2024",
         "month": "06",
-        "day": "18"
-      },
-      "text": {
-        "headline": "Published Article on Security Topic 2",
-        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic2_security/'>Read more</a>"
-      }
-    },
-    {
-      "start_date": {
-        "year": "2024",
-        "month": "07",
-        "day": "10"
-      },
-      "text": {
-        "headline": "Published Article on Quality Topic 6",
-        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic6_quality'>Read more</a>"
-      }
-    },
-    {
-      "start_date": {
-        "year": "2024",
-        "month": "07",
-        "day": "12"
-      },
-      "text": {
-        "headline": "Published Article on Quality Topic 7",
-        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic7_quality'>Read more</a>"
-      }
-    },
-    {
-      "start_date": {
-        "year": "2024",
-        "month": "07",
-        "day": "15"
-      },
-      "text": {
-        "headline": "Published Article on Bridging Topic 7",
-        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic7_bridging'>Read more</a>"
-      }
-    }
-  ]
-}
+       
