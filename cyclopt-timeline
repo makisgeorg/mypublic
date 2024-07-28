@@ -1,0 +1,241 @@
+{
+  "title": {
+    "text": {
+      "headline": "My Journey at Cyclopt",
+      "text": "A comprehensive overview of my activities as a content creator from May 1, 2023, to July 15, 2024."
+    }
+  },
+  "events": [
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "05",
+        "day": "01"
+      },
+      "text": {
+        "headline": "Started at Cyclopt",
+        "text": "Began my journey as a content creator."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "06",
+        "day": "15"
+      },
+      "text": {
+        "headline": "Completed Initial Training on Quality Assessment",
+        "text": "Learned about the parameters and processes involved in assessing the quality of software."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "08",
+        "day": "10"
+      },
+      "text": {
+        "headline": "Mastered the Basics of GitHub",
+        "text": "Learned repository management, collaboration, and version control using GitHub."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "10",
+        "day": "05"
+      },
+      "text": {
+        "headline": "In-depth Understanding of Agile and DevOps Methodologies",
+        "text": "Gained insights into Agile, DevOps, and CI/CD methodologies."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "12",
+        "day": "20"
+      },
+      "text": {
+        "headline": "Proficient in Using VSCode and Markdown",
+        "text": "Became proficient in using VSCode and Markdown for development and documentation."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2023",
+        "month": "09",
+        "day": "09"
+      },
+      "text": {
+        "headline": "Published Article on Security",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic1_security'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "01",
+        "day": "09"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 1",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic1_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "02",
+        "day": "27"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 2",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic2_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "03",
+        "day": "05"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 3",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic3_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "03",
+        "day": "19"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 1",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic1_quality'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "03",
+        "day": "29"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 2",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic2_quality/'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "04",
+        "day": "05"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 3",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic3_quality/'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "04",
+        "day": "25"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 4",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic4_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "05",
+        "day": "14"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 5",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic5_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "05",
+        "day": "18"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 4",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic4_quality/'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "05",
+        "day": "24"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 5",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic5_quality/'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "06",
+        "day": "05"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 6",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic6_bridging'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "06",
+        "day": "18"
+      },
+      "text": {
+        "headline": "Published Article on Security Topic 2",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic2_security/'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "07",
+        "day": "10"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 6",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic6_quality'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "07",
+        "day": "12"
+      },
+      "text": {
+        "headline": "Published Article on Quality Topic 7",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic7_quality'>Read more</a>"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "07",
+        "day": "15"
+      },
+      "text": {
+        "headline": "Published Article on Bridging Topic 7",
+        "text": "<a href='https://makis.cyclopt.com/docs/makis/topic7_bridging'>Read more</a>"
+      }
+    }
+  ]
+}
