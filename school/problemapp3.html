@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Προγραμματισμός - Έννοια του Προβλήματος</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Έννοια του Προβλήματος στον Προγραμματισμό</h1>
+        <form id="quizForm">
+            <!-- Ερώτηση 1 -->
+            <div class="question">
+                <h3>1. Τι είναι ένα πρόβλημα στον προγραμματισμό;</h3>
+                <input type="radio" name="q1" value="A"> A) Μια δομή δεδομένων που αποθηκεύει τιμές.<br>
+                <input type="radio" name="q1" value="B"> B) Μια μαθηματική εξίσωση που πρέπει να λυθεί.<br>
+                <input type="radio" name="q1" value="C"> C) Ένα σύνολο από απαιτήσεις που χρειάζεται να επιλυθούν με έναν αλγόριθμο.<br>
+                <input type="radio" name="q1" value="D"> D) Ένας τρόπος επικοινωνίας με τον υπολογιστή.<br>
+            </div>
+            
+            <!-- Ερώτηση 2 -->
+            <div class="question">
+                <h3>2. Ποια είναι τα βασικά στάδια για την επίλυση ενός προβλήματος στον προγραμματισμό;</h3>
+                <input type="radio" name="q2" value="A"> A) Ανάλυση, σχεδίαση, υλοποίηση, δοκιμή.<br>
+                <input type="radio" name="q2" value="B"> B) Σύνταξη, εκτέλεση, διόρθωση, επαναλαμβανόμενη δοκιμή.<br>
+                <input type="radio" name="q2" value="C"> C) Γραφή κώδικα, μεταγλώττιση, εκτέλεση.<br>
+                <input type="radio" name="q2" value="D"> D) Ανάλυση, εκτέλεση, σύνταξη.<br>
+            </div>
+            
+            <!-- Ερώτηση 3 -->
+            <div class="question">
+                <h3>3. Ποιο από τα παρακάτω είναι παράδειγμα μιας σαφώς ορισμένης λύσης σε ένα πρόβλημα;</h3>
+                <input type="radio" name="q3" value="A"> A) Ένα κείμενο με κατευθυντήριες οδηγίες.<br>
+                <input type="radio" name="q3" value="B"> B) Ένα πρόγραμμα που επιστρέφει το σωστό αποτέλεσμα για όλες τις πιθανές εισόδους.<br>
+                <input type="radio" name="q3" value="C"> C) Μια ιδέα για τον τρόπο επίλυσης του προβλήματος.<br>
+                <input type="radio" name="q3" value="D"> D) Ένα διάγραμμα ροής χωρίς κώδικα.<br>
+            </div>
+            
+            <!-- Ερώτηση 4 -->
+            <div class="question">
+                <h3>4. Ποιο είναι το πρώτο βήμα στην επίλυση ενός προγραμματιστικού προβλήματος;</h3>
+                <input type="radio" name="q4" value="A"> A) Η γραφή κώδικα.<br>
+                <input type="radio" name="q4" value="B"> B) Η ανάλυση του προβλήματος και κατανόηση των απαιτήσεων.<br>
+                <input type="radio" name="q4" value="C"> C) Η επιλογή της γλώσσας προγραμματισμού.<br>
+                <input type="radio" name="q4" value="D"> D) Η μεταγλώττιση του προγράμματος.<br>
+            </div>
+            
+            <!-- Ερώτηση 5 -->
+            <div class="question">
+                <h3>5. Ποιος από τους παρακάτω όρους αναφέρεται στην απόσπαση του βασικού πυρήνα ενός προβλήματος και την αφαίρεση περιττών λεπτομερειών;</h3>
+                <input type="radio" name="q5" value="A"> A) Διαμερισματοποίηση.<br>
+                <input type="radio" name="q5" value="B"> B) Αφαίρεση.<br>
+                <input type="radio" name="q5" value="C"> C) Ανάλυση.<br>
+                <input type="radio" name="q5" value="D"> D) Κατανόηση.<br>
+            </div>
+            
+            <!-- Ερώτηση 6 -->
+            <div class="question">
+                <h3>6. Ποιος από τους παρακάτω είναι ένας συνήθης τρόπος διάσπασης ενός προβλήματος σε μικρότερα μέρη;</h3>
+                <input type="radio" name="q6" value="A"> A) Αναδρομή.<br>
+                <input type="radio" name="q6" value="B"> B) Δοκιμασία και σφάλμα.<br>
+                <input type="radio" name="q6" value="C"> C) Διαίρει και βασίλευε.<br>
+                <input type="radio" name="q6" value="D"> D) Ανάλυση δεδομένων.<br>
+            </div>
+            
+            <!-- Ερώτηση 7 -->
+            <div class="question">
+                <h3>7. Τι είναι ένας αλγόριθμος στην επίλυση προβλημάτων προγραμματισμού;</h3>
+                <input type="radio" name="q7" value="A"> A) Μια διαδικασία επίλυσης ενός προβλήματος μέσω μιας σειράς κανόνων ή βημάτων.<br>
+                <input type="radio" name="q7" value="B"> B) Ένα σύνολο εντολών που εκτελούνται ταυτόχρονα.<br>
+                <input type="radio" name="q7" value="C"> C) Μια μέθοδος αποθήκευσης δεδομένων.<br>
+                <input type="radio" name="q7" value="D"> D) Ένα εργαλείο για τη σύνταξη κώδικα.<br>
+            </div>
+            
+            <!-- Ερώτηση 8 -->
+            <div class="question">
+                <h3>8. Ποιο από τα παρακάτω δεν αποτελεί στοιχείο ενός καλά ορισμένου προβλήματος;</h3>
+                <input type="radio" name="q8" value="A"> A) Σαφώς καθορισμένα δεδομένα εισόδου.<br>
+                <input type="radio" name="q8" value="B"> B) Ασαφείς ή διφορούμενοι στόχοι.<br>
+                <input type="radio" name="q8" value="C"> C) Ένα προβλέψιμο αποτέλεσμα.<br>
+                <input type="radio" name="q8" value="D"> D) Σαφώς καθορισμένες συνθήκες επίλυσης.<br>
+            </div>
+            
+            <!-- Ερώτηση 9 -->
+            <div class="question">
+                <h3>9. Ποια από τις παρακάτω τεχνικές βοηθά στην οργάνωση της διαδικασίας σκέψης κατά την επίλυση ενός προβλήματος προγραμματισμού;</h3>
+                <input type="radio" name="q9" value="A"> A) Διαγράμματα ροής.<br>
+                <input type="radio" name="q9" value="B"> B) Τυχαία δοκιμή.<br>
+                <input type="radio" name="q9" value="C"> C) Δοκιμή και σφάλμα.<br>
+                <input type="radio" name="q9" value="D"> D) Αποθήκευση δεδομένων.<br>
+            </div>
+
+
+            <!-- Ερώτηση 10 -->
+            <div class="question">
+                <h3>10. Ποιο από τα παρακάτω αποτελεί χαρακτηριστικό ενός καλά διατυπωμένου προβλήματος προγραμματισμού;</h3>
+                <input type="radio" name="q10" value="A"> A) Μια περίπλοκη λύση που απαιτεί χρόνο.<br>
+                <input type="radio" name="q10" value="B"> B) Ένα σαφώς καθορισμένο σύνολο εισόδων και αποτελεσμάτων.<br>
+                <input type="radio" name="q10" value="C"> C) Μια λύση που βασίζεται στη δοκιμή και σφάλμα.<br>
+                <input type="radio" name="q10" value="D"> D) Ένας ασαφής ορισμός των απαιτήσεων.<br>
+            </div>
+            
+            <button type="button" onclick="calculateScore()">Υποβολή</button>
+        </form>
+
+
+        <div id="results"></div>
+    </div>
+
+
+    <script>
+        // Σωστές απαντήσεις
+        const correctAnswers = {
+            q1: 'C',
+            q2: 'A',
+            q3: 'B',
+            q4: 'B',
+            q5: 'B',
+            q6: 'C',
+            q7: 'A',
+            q8: 'B',
+            q9: 'A',
+            q10: 'B'
+        };
+
+
+        function calculateScore() {
+            let form = document.forms['quizForm'];
+            let score = 0;
+            let results = "<h3>Αποτελέσματα:</h3>";
+
+
+            // Υπολογισμός του σκορ και εμφάνιση σωστών απαντήσεων
+            for (let i = 1; i <= 10; i++) {
+                let question = 'q' + i;
+                let userAnswer = form[question].value;
+                if (userAnswer === correctAnswers[question]) {
+                    score++;
+                    results += `<p>Ερώτηση ${i}: Σωστό!</p>`;
+                } else {
+                    results += `<p>Ερώτηση ${i}: Λάθος! Η σωστή απάντηση ήταν: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+
+            results += `<h3>Τελικό Σκορ: ${score}/10</h3>`;
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+</body>
+</html>
