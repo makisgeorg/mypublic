@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Φύλλο Εργασίας: Η Έννοια του Αλγορίθμου</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .correct-answer {
+            color: green;
+        }
+    </style>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("igeorgGmailService");  // Αντικαταστήστε με το user ID από το EmailJS
+        })();
+    </script>
+</head>
+<body>
+
+    <h1>Φύλλο Εργασίας: Η Έννοια του Αλγορίθμου</h1>
+
+    <form id="studentInfo">
+        <label for="name">Όνομα:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="surname">Επώνυμο:</label>
+        <input type="text" id="surname" name="surname" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="button" value="Έναρξη" onclick="startWorksheet()">
+    </form>
+
+    <form id="worksheet" style="display: none;">
+        <!-- Όλες οι ερωτήσεις όπως πριν... -->
+
+        <!-- Ερώτηση 1 -->
+        <div class="question">
+            <p><strong>Ερώτηση 1: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποια από τα παρακάτω περιγράφει καλύτερα έναν αλγόριθμο;</p>
+            <label><input type="radio" name="q1" value="1"> Μια αλληλουχία βημάτων για την επίλυση ενός προβλήματος</label><br>
+            <label><input type="radio" name="q1" value="2"> Ένα είδος προγράμματος υπολογιστή</label><br>
+            <label><input type="radio" name="q1" value="3"> Ένα διάγραμμα που εξηγεί δεδομένα</label><br>
+            <label><input type="radio" name="q1" value="4"> Μια γλώσσα προγραμματισμού</label>
+        </div>
+
+        <!-- Ερώτηση 2 έως 20 (όπως πριν) -->
+
+        <input type="button" value="Υποβολή" onclick="submitWorksheet()">
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        // Αρχή της φόρμας του μαθητή
+        function startWorksheet() {
+            document.getElementById("studentInfo").style.display = "none";
+            document.getElementById("worksheet").style.display = "block";
+        }
+
+        // Υπολογισμός της βαθμολογίας και αποστολή του email
+        function submitWorksheet() {
+            let totalQuestions = 20;  // Συνολικός αριθμός ερωτήσεων
+            let correctAnswers = 0;  // Αρχικοποίηση του αριθμού σωστών απαντήσεων
+
+            // Αξιολόγηση ερωτήσεων (π.χ. Ερώτηση 1)
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value == "1") {
+                correctAnswers += 1;
+            }
+
+            // Αξιολόγηση άλλων ερωτήσεων πολλαπλής επιλογής και συμπλήρωσης κενών...
+
+            // Βαθμολόγηση των ερωτήσεων ανάπτυξης (χρήστης πρέπει να βαθμολογήσει μόνος του)
+            let openQuestionsScore = prompt("Δώστε συνολική βαθμολογία για τις ερωτήσεις ανάπτυξης (0-10):", 0);
+            openQuestionsScore = parseInt(openQuestionsScore) || 0;
+            let finalScore = (correctAnswers + openQuestionsScore);  // Υπολογισμός τελικού βαθμού
+
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let email = document.getElementById("email").value;
+
+            let resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2>Ο τελικός σας βαθμός είναι: ${finalScore}/${totalQuestions + 10}</h2>`;
+
+            // Αποστολή email με τα αποτελέσματα στον καθηγητή
+            let templateParams = {
+                from_name: `${name} ${surname}`,
+                to_name: 'Καθηγητής',
+                student_email: email,
+                final_score: finalScore,
+                message: `Ο μαθητής ${name} ${surname} ολοκλήρωσε το φύλλο εργασίας με βαθμολογία ${finalScore}/${totalQuestions + 10}.`
+            };
+
+            emailjs.send('service_7p18o8d', 'template_gfmyyzr', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
