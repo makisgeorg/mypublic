@@ -8,7 +8,7 @@ from PIL import Image, ImageOps
 # -----------------------------
 # Use a raw string (r"...") to avoid issues with backslashes in Windows paths.
 # model_path = r"C:\Users\USER\AIKoronia\AI_Koronia_Model.keras"
-model = tf.keras.models.load_model("./AI_Koronia_Model.keras", compile=False)
+# model = tf.keras.models.load_model("./AI_Koronia_Model.keras", compile=False)
 
 
 try:
