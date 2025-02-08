@@ -7,13 +7,13 @@ from PIL import Image, ImageOps
 # 1. Load the saved model
 # -----------------------------
 # Use a raw string (r"...") to avoid issues with backslashes in Windows paths.
-# model_path = r"C:\Users\USER\AIKoronia\AI_Koronia_Model.keras"
+  model_path = r"\AI_Koronia_Model.keras"
 # model = tf.keras.models.load_model("./AI_Koronia_Model.keras", compile=False)
 
 
 try:
-    #model = tf.keras.models.load_model(model_path)
-    model = tf.keras.models.load_model("./AI_Koronia_Model.keras", compile=False)
+    model = tf.keras.models.load_model(model_path)
+   # model = tf.keras.models.load_model("./AI_Koronia_Model.keras", compile=False)
     st.success("Model loaded successfully!")
 except Exception as e:
     st.error(f"Error loading the model. Please check the path.\n{e}")
