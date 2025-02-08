@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Φύλλο Εργασίας: Η Έννοια του Αλγορίθμου</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
+        .wrong-answer {
+            color: red;
+        }
+    </style>
+     <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "6kDHWqyG7i-DzIjHC",
+      });
+   })();
+</script>
+</head>
+<body>
+
+    <h1>Φύλλο Εργασίας: Η Έννοια του Αλγορίθμου</h1>
+
+    <form id="studentInfo">
+        <label for="name">Όνομα:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="surname">Επώνυμο:</label>
+        <input type="text" id="surname" name="surname" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="button" value="Έναρξη" onclick="startWorksheet()">
+    </form>
+
+    <form id="worksheet" style="display: none;">
+        <!-- Ερώτηση 1 -->
+        <div class="question">
+            <p><strong>Ερώτηση 1: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποια από τα παρακάτω περιγράφει καλύτερα έναν αλγόριθμο;</p>
+            <label><input type="radio" name="q1" value="1"> Μια αλληλουχία βημάτων για την επίλυση ενός προβλήματος</label><br>
+            <label><input type="radio" name="q1" value="2"> Ένα είδος προγράμματος υπολογιστή</label><br>
+            <label><input type="radio" name="q1" value="3"> Ένα διάγραμμα που εξηγεί δεδομένα</label><br>
+            <label><input type="radio" name="q1" value="4"> Μια γλώσσα προγραμματισμού</label>
+        </div>
+
+        <!-- Ερώτηση 2 -->
+        <div class="question">
+            <p><strong>Ερώτηση 2: Συμπλήρωση Κενών</strong></p>
+            <p>Ο αλγόριθμος είναι μια <input type="text" name="q2_1" size="10"> βημάτων που μας οδηγεί στην <input type="text" name="q2_2" size="10"> ενός προβλήματος. Κάθε βήμα πρέπει να είναι <input type="text" name="q2_3" size="10"> και <input type="text" name="q2_4" size="10">.</p>
+        </div>
+
+        <!-- Ερώτηση 3: Ημισυμπληρωμένος Αλγόριθμος -->
+        <div class="question">
+            <p><strong>Ερώτηση 3: Ημισυμπληρωμένος Αλγόριθμος</strong></p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει τον πρώτο αριθμό.<br>
+                2. Ζητάμε από τον χρήστη να εισάγει τον δεύτερο αριθμό.<br>
+                3. Υπολογίζουμε το <input type="text" name="q3_1" size="10"> των δύο αριθμών.<br>
+                4. Εμφανίζουμε το <input type="text" name="q3_2" size="10">.
+            </p>
+        </div>
+
+        <!-- Ερώτηση 4: Πολλαπλής Επιλογής -->
+        <div class="question">
+            <p><strong>Ερώτηση 4: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποιο είναι το σωστό επόμενο βήμα στον παρακάτω αλγόριθμο που ελέγχει αν ένας αριθμός είναι άρτιος ή περιττός;</p>
+            <p>1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.</p>
+            <label><input type="radio" name="q4" value="a"> Ελέγχουμε αν ο αριθμός είναι μεγαλύτερος από 10</label><br>
+            <label><input type="radio" name="q4" value="b"> Ελέγχουμε αν ο αριθμός διαιρείται ακριβώς δια 2</label><br>
+            <label><input type="radio" name="q4" value="c"> Προσθέτουμε 1 στον αριθμό</label><br>
+            <label><input type="radio" name="q4" value="d"> Ελέγχουμε αν ο αριθμός είναι μικρότερος από 0</label>
+        </div>
+
+        <!-- Ερώτηση 5: Διορθώστε τον Αλγόριθμο -->
+        <div class="question">
+            <p><strong>Ερώτηση 5: Διορθώστε τον Αλγόριθμο</strong></p>
+            <p>Ο παρακάτω αλγόριθμος έχει σφάλματα. Διορθώστε τα:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.<br>
+                2. Αν ο αριθμός είναι μεγαλύτερος από 5, τότε εμφανίζουμε "Ο αριθμός είναι μικρότερος από 5".<br>
+                3. Αν ο αριθμός είναι μικρότερος από 5, τότε εμφανίζουμε "Ο αριθμός είναι μεγαλύτερος από 5".<br>
+                4. Τέλος.
+            </p>
+            <textarea name="q5" rows="4" cols="50"></textarea>
+        </div>
+
+<!-- Ερώτηση 5 -->
+        <div class="question">
+            <p><strong>Ερώτηση 5: Διορθώστε τον Αλγόριθμο</strong></p>
+            <p>Ο παρακάτω αλγόριθμος έχει σφάλματα. Διορθώστε τα:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.<br>
+                2. Αν ο αριθμός είναι μεγαλύτερος από 5, τότε εμφανίζουμε "Ο αριθμός είναι μικρότερος από 5".<br>
+                3. Αν ο αριθμός είναι μικρότερος από 5, τότε εμφανίζουμε "Ο αριθμός είναι μεγαλύτερος από 5".<br>
+                4. Τέλος.
+            </p>
+            <textarea name="q5" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 6 -->
+        <div class="question">
+            <p><strong>Ερώτηση 6: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο σε φυσική γλώσσα που να υπολογίζει τον μέσο όρο τριών αριθμών.</p>
+            <textarea name="q6" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 7 -->
+        <div class="question">
+            <p><strong>Ερώτηση 7: Συμπλήρωση Κενών</strong></p>
+            <p>Συμπληρώστε τα κενά στον αλγόριθμο που υπολογίζει το γινόμενο δύο αριθμών:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει τον πρώτο αριθμό.<br>
+                2. Ζητάμε από τον χρήστη να εισάγει τον δεύτερο αριθμό.<br>
+                3. Υπολογίζουμε το <input type="text" name="q7_1" size="10">.<br>
+                4. Εμφανίζουμε το αποτέλεσμα.
+            </p>
+        </div>
+
+        <!-- Ερώτηση 8 -->
+        <div class="question">
+            <p><strong>Ερώτηση 8: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο σε φυσική γλώσσα που να ελέγχει αν ένας αριθμός είναι θετικός, αρνητικός ή μηδέν.</p>
+            <textarea name="q8" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 9 -->
+        <div class="question">
+            <p><strong>Ερώτηση 9: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποιο είναι το σωστό επόμενο βήμα στον αλγόριθμο που συγκρίνει δύο αριθμούς;</p>
+            <p>1. Ζητάμε από τον χρήστη να εισάγει δύο αριθμούς.</p>
+            <label><input type="radio" name="q9" value="a"> Ελέγχουμε αν ο πρώτος αριθμός είναι μικρότερος από τον δεύτερο</label><br>
+            <label><input type="radio" name="q9" value="b"> Ελέγχουμε αν οι δύο αριθμοί είναι ίσοι</label><br>
+            <label><input type="radio" name="q9" value="c"> Ελέγχουμε αν ο δεύτερος αριθμός είναι μηδέν</label><br>
+            <label><input type="radio" name="q9" value="d"> Ελέγχουμε αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο</label>
+        </div>
+
+        <!-- Ερώτηση 10 -->
+        <div class="question">
+            <p><strong>Ερώτηση 10: Διορθώστε τον Αλγόριθμο</strong></p>
+            <p>Ο παρακάτω αλγόριθμος έχει ένα λάθος. Διορθώστε το:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.<br>
+                2. Ελέγχουμε αν ο αριθμός είναι μεγαλύτερος από  10.<br>
+                3. Αν ναι, εμφανίζουμε "Ο αριθμός είναι μικρότερος από 10".<br>
+                4. Αλλιώς, εμφανίζουμε "Ο αριθμός είναι μεγαλύτερος από 10".
+            </p>
+            <textarea name="q10" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 11 -->
+        <div class="question">
+            <p><strong>Ερώτηση 11: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο που να υπολογίζει το άθροισμα όλων των αριθμών από το 1 έως το 100.</p>
+            <textarea name="q11" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 12 -->
+        <div class="question">
+            <p><strong>Ερώτηση 12: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποιο από τα παρακάτω είναι ο σωστός αλγόριθμος για να βρείτε το ελάχιστο από δύο αριθμούς;</p>
+            <label><input type="radio" name="q12" value="a"> Αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο, επιστρέφουμε τον δεύτερο.</label><br>
+            <label><input type="radio" name="q12" value="b"> Αν ο πρώτος αριθμός είναι μικρότερος από τον δεύτερο, επιστρέφουμε τον πρώτο.</label><br>
+            <label><input type="radio" name="q12" value="c"> Ελέγχουμε αν ο πρώτος αριθμός είναι ίσος με τον δεύτερο και επιστρέφουμε οποιονδήποτε από τους δύο.</label><br>
+            <label><input type="radio" name="q12" value="d"> Ελέγχουμε αν ο πρώτος αριθμός είναι μηδέν.</label>
+        </div>
+
+        <!-- Ερώτηση 13 -->
+        <div class="question">
+            <p><strong>Ερώτηση 13: Συμπλήρωση Κενών</strong></p>
+            <p>Συμπληρώστε τα κενά στον αλγόριθμο που υπολογίζει τον μέσο όρο μιας λίστας αριθμών:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει τη λίστα.<br>
+                2. Υπολογίζουμε το <input type="text" name="q13_1" size="10"> της λίστας.<br>
+                3. Διαιρούμε το άθροισμα με τον αριθμό των στοιχείων.<br>
+                4. Εμφανίζουμε το <input type="text" name="q13_2" size="10">.
+            </p>
+        </div>
+
+        <!-- Ερώτηση 14 -->
+        <div class="question">
+            <p><strong>Ερώτηση 14: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο σε φυσική γλώσσα που να ελέγχει αν ένας αριθμός είναι πρώτος.</p>
+            <textarea name="q14" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 15 -->
+        <div class="question">
+            <p><strong>Ερώτηση 15: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποια από τις παρακάτω εντολές χρησιμοποιούμε για επανάληψη σε έναν αλγόριθμο;</p>
+            <label><input type="radio" name="q15" value="a"> Αν</label><br>
+            <label><input type="radio" name="q15" value="b"> Εμφάνισε</label><br>
+            <label><input type="radio" name="q15" value="c"> Όσο</label><br>
+            <label><input type="radio" name="q15" value="d"> Υπολόγισε</label>
+        </div>
+
+        <!-- Ερώτηση 16 -->
+        <div class="question">
+            <p><strong>Ερώτηση 16: Διορθώστε τον Αλγόριθμο</strong></p>
+            <p>Ο παρακάτω αλγόριθμος έχει ένα λάθος. Διορθώστε το:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.<br>
+                2. Αν ο αριθμός είναι μεγαλύτερος από το 0, τότε εμφανίζουμε "Ο αριθμός είναι αρνητικός".<br>
+                3. Αν ο αριθμός είναι μικρότερος από το 0, τότε εμφανίζουμε "Ο αριθμός είναι θετικός".<br>
+                4. Τέλος.
+            </p>
+            <textarea name="q16" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 17 -->
+        <div class="question">
+            <p><strong>Ερώτηση 17: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο που υπολογίζει πόσες φορές εμφανίζεται ένας συγκεκριμένος χαρακτήρας σε μια λέξη που εισάγει ο χρήστης.</p>
+            <textarea name="q17" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 18 -->
+        <div class="question">
+            <p><strong>Ερώτηση 18: Πολλαπλής Επιλογής</strong></p>
+            <p>Ποιο είναι το σωστό επόμενο βήμα στον αλγόριθμο που υπολογίζει το άθροισμα δύο αριθμών;</p>
+            <p>1. Ζητάμε από τον χρήστη να εισάγει τον πρώτο αριθμό.</p>
+            <label><input type="radio" name="q18" value="a"> Ζητάμε από τον χρήστη να εισάγει έναν τρίτο αριθμό</label><br>
+            <label><input type="radio" name="q18" value="b"> Υπολογίζουμε το γινόμενο των δύο αριθμών</label><br>
+            <label><input type="radio" name="q18" value="c"> Ζητάμε από τον χρήστη να εισάγει τον δεύτερο αριθμό</label><br>
+            <label><input type="radio" name="q18" value="d"> Ελέγχουμε αν ο πρώτος αριθμός είναι μεγαλύτερος από 0</label>
+        </div>
+
+        <!-- Ερώτηση 19 -->
+        <div class="question">
+            <p><strong>Ερώτηση 19: Ανάπτυξη Αλγορίθμου</strong></p>
+            <p>Γράψτε έναν αλγόριθμο που να εμφανίζει όλους τους αριθμούς από το 1 έως το 10.</p>
+            <textarea name="q19" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 20 -->
+        <div class="question">
+            <p><strong>Ερώτηση 20: Διορθώστε τον Αλγόριθμο</strong></p>
+            <p>Ο παρακάτω αλγόριθμος έχει ένα λάθος. Διορθώστε το:</p>
+            <p>
+                1. Ζητάμε από τον χρήστη να εισάγει δύο αριθμούς.<br>
+                2. Αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο, τότε εμφανίζουμε "Ο δεύτερος αριθμός είναι μεγαλύτερος".<br>
+                3. Αλλιώς, εμφανίζουμε "Ο πρώτος αριθμός είναι μεγαλύτερος".<br>
+                4. Τέλος.
+            </p>
+            <textarea name="q20" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Ερώτηση 6 έως 20 συνεχίζονται με παρόμοιο τρόπο... -->
+
+        <input type="button" value="Υποβολή" onclick="submitWorksheet()">
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        // Αρχή της φόρμας του μαθητή
+        function startWorksheet() {
+            document.getElementById("studentInfo").style.display = "none";
+            document.getElementById("worksheet").style.display = "block";
+        }
+
+        // Υπολογισμός της βαθμολογίας και εμφάνιση των σωστών απαντήσεων
+        function submitWorksheet() {
+            let totalQuestions = 20;  // Συνολικός αριθμός ερωτήσεων
+            let correctAnswers = 0;  // Αρχικοποίηση του αριθμού σωστών απαντήσεων
+            let resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>Αποτελέσματα</h2>';
+
+            // Ερώτηση 1
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value == "1") {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 1: Σωστή απάντηση! <span class="correct-answer">Μια αλληλουχία βημάτων για την επίλυση ενός προβλήματος</span></p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 1: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Μια αλληλουχία βημάτων για την επίλυση ενός προβλήματος</span></p>`;
+            }
+
+            // Ερώτηση 2 - Συμπλήρωση Κενών
+            let q2_1 = document.querySelector('input[name="q2_1"]').value.trim();
+            let q2_2 = document.querySelector('input[name="q2_2"]').value.trim();
+            let q2_3 = document.querySelector('input[name="q2_3"]').value.trim();
+            let q2_4 = document.querySelector('input[name="q2_4"]').value.trim();
+            if (q2_1.toLowerCase() == 'ακολουθία' && q2_2.toLowerCase() == 'επίλυση' && q2_3.toLowerCase() == 'σαφές' && q2_4.toLowerCase() == 'περιγραφόμενο') {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 2: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 2: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">ακολουθία, επίλυση, σαφές, περιγραφόμενο</span></p>`;
+            }
+
+            // Ερώτηση 3 - Ημισυμπληρωμένος Αλγόριθμος
+            let q3_1 = document.querySelector('input[name="q3_1"]').value.trim();
+            let q3_2 = document.querySelector('input[name="q3_2"]').value.trim();
+            if (q3_1.toLowerCase() == 'άθροισμα' && q3_2.toLowerCase() == 'άθροισμα') {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 3: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 3: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">άθροισμα, άθροισμα</span></p>`;
+            }
+
+            // Ερώτηση 4 - Πολλαπλής Επιλογής
+            let q4 = document.querySelector('input[name="q4"]:checked');
+            if (q4 && q4.value == "b") {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 4: Σωστή απάντηση! <span class="correct-answer">Ελέγχουμε αν ο αριθμός διαιρείται ακριβώς δια 2</span></p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 4: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Ελέγχουμε αν ο αριθμός διαιρείται ακριβώς δια 2</span></p>`;
+            }
+
+
+           // Ερώτηση 5 - Διορθώστε τον Αλγόριθμο
+            let q5 = document.querySelector('textarea[name="q5"]').value.trim();
+            // Ας θεωρήσουμε ότι οποιαδήποτε λογική απάντηση θα δίνει σωστό αποτέλεσμα
+            if (q5.toLowerCase().includes("μεγαλύτερος από 5") && q5.toLowerCase().includes("μικρότερος ή ίσος με 5")) {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 5: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 5: <span class="wrong-answer">Λάθος απάντηση</span>. Η σωστή απάντηση είναι: 
+                <span class="correct-answer">1. Ζητάμε από τον χρήστη να εισάγει έναν αριθμό.<br>
+                2. Αν ο αριθμός είναι μεγαλύτερος από 5, τότε εμφανίζουμε "Ο αριθμός είναι μεγαλύτερος από 5".<br>
+                3. Αν ο αριθμός είναι μικρότερος ή ίσος με 5, τότε εμφανίζουμε "Ο αριθμός είναι μικρότερος ή ίσος με 5".<br>
+                4. Τέλος.</span></p>`;
+            }
+
+ // Ερώτηση 6 - Ανάπτυξη Αλγορίθμου
+            let q6 = document.querySelector('textarea[name="q6"]').value.trim();
+            // Σωστό αν περιλαμβάνει αναφορά για τρεις αριθμούς και τον μέσο όρο
+            if (q6.toLowerCase().includes("μέσος όρος") && q6.toLowerCase().includes("τρεις αριθμούς")) {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 6: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 6: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Ζητάμε από τον χρήστη να εισάγει τρεις αριθμούς, υπολογίζουμε το άθροισμα και διαιρούμε με το 3 για να βρούμε τον μέσο όρο.</span></p>`;
+            }
+
+  // Ερώτηση 7 - Συμπλήρωση Κενών
+            let q7_1 = document.querySelector('input[name="q7_1"]').value.trim();
+            if (q7_1.toLowerCase() == 'γινόμενο') {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 7: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 7: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">γινόμενο</span></p>`;
+            }
+
+            // Ερώτηση 8 - Ανάπτυξη Αλγορίθμου (Έλεγχος θετικός, αρνητικός ή μηδέν)
+            let q8 = document.querySelector('textarea[name="q8"]').value.trim();
+            if (q8.toLowerCase().includes("θετικός") && q8.toLowerCase().includes("αρνητικός") && q8.toLowerCase().includes("μηδέν")) {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 8: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 8: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αλγόριθμος πρέπει να ελέγχει αν ο αριθμός είναι μεγαλύτερος από 0, μικρότερος από 0 ή ίσος με 0.</p>`;
+            }
+
+            // Ερώτηση 9 - Πολλαπλής Επιλογής (Συγκρίνει αν δύο αριθμοί είναι ίσοι)
+            let q9 = document.querySelector('input[name="q9"]:checked');
+            if (q9 && q9.value == "b") {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 9: Σωστή απάντηση! <span class="correct-answer">Ελέγχουμε αν οι δύο αριθμοί είναι ίσοι</span></p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 9: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Ελέγχουμε αν οι δύο αριθμοί είναι ίσοι</span></p>`;
+            }
+
+            // Ερώτηση 10 - Διορθώστε τον Αλγόριθμο
+            let q10 = document.querySelector('textarea[name="q10"]').value.trim();
+            if (q10.toLowerCase().includes("μικρότερος από 10") && q10.toLowerCase().includes("μεγαλύτερος από 10")) {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 10: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 10: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αριθμός πρέπει να συγκρίνεται με το 10 και να εμφανίζεται αν είναι μεγαλύτερος ή μικρότερος.</p>`;
+            }
+            // Ερώτηση 11 - Ανάπτυξη Αλγορίθμου
+            let q11 = document.querySelector('textarea[name="q11"]').value.trim();
+            if (q11.toLowerCase().includes("άθροισμα") && q11.toLowerCase().includes("1 έως 100")) {
+                correctAnswers += 1;
+                resultsDiv.innerHTML += `<p>Ερώτηση 11: Σωστή απάντηση!</p>`;
+            } else {
+                resultsDiv.innerHTML += `<p>Ερώτηση 11: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αλγόριθμος πρέπει να υπολογίζει το άθροισμα των αριθμών από το 1 έως το 100.</p>`;
+            }
+// Ερώτηση 12 - Πολλαπλής Επιλογής (Εύρεση ελάχιστου μεταξύ δύο αριθμών)
+let q12 = document.querySelector('input[name="q12"]:checked');
+if (q12 && q12.value == "a") {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 12: Σωστή απάντηση! <span class="correct-answer">Αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο, επιστρέφουμε τον δεύτερο.</span></p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 12: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο, επιστρέφουμε τον δεύτερο.</span></p>`;
+}
+
+// Ερώτηση 13 - Συμπλήρωση Κενών (Υπολογισμός μέσου όρου)
+let q13_1 = document.querySelector('input[name="q13_1"]').value.trim();
+let q13_2 = document.querySelector('input[name="q13_2"]').value.trim();
+if (q13_1.toLowerCase() == 'άθροισμα' && q13_2.toLowerCase() == 'μέσος όρος') {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 13: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 13: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστές απαντήσεις: <span class="correct-answer">άθροισμα, μέσος όρος</span></p>`;
+}
+// Ερώτηση 14 - Ανάπτυξη Αλγορίθμου (Έλεγχος αν αριθμός είναι πρώτος)
+let q14 = document.querySelector('textarea[name="q14"]').value.trim();
+if (q14.toLowerCase().includes("πρώτος αριθμός") && q14.toLowerCase().includes("διαιρείται μόνο με τον εαυτό του και το 1")) {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 14: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 14: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αριθμός είναι πρώτος αν διαιρείται μόνο με τον εαυτό του και το 1.</p>`;
+}
+// Ερώτηση 15 - Πολλαπλής Επιλογής (Εντολή επανάληψης)
+let q15 = document.querySelector('input[name="q15"]:checked');
+if (q15 && q15.value == "c") {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 15: Σωστή απάντηση! <span class="correct-answer">Όσο</span></p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 15: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Όσο</span></p>`;
+}
+// Ερώτηση 16 - Διορθώστε τον Αλγόριθμο (Έλεγχος θετικός ή αρνητικός αριθμός)
+let q16 = document.querySelector('textarea[name="q16"]').value.trim();
+if (q16.toLowerCase().includes("θετικός") && q16.toLowerCase().includes("αρνητικός")) {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 16: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 16: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Αν ο αριθμός είναι μεγαλύτερος από το 0, τότε είναι θετικός. Αν είναι μικρότερος από το 0, είναι αρνητικός.</p>`;
+}
+// Ερώτηση 17 - Ανάπτυξη Αλγορίθμου (Εύρεση εμφάνισης χαρακτήρα)
+let q17 = document.querySelector('textarea[name="q17"]').value.trim();
+if (q17.toLowerCase().includes("χαρακτήρας") && q17.toLowerCase().includes("μετράει πόσες φορές εμφανίζεται")) {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 17: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 17: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αλγόριθμος πρέπει να μετράει πόσες φορές εμφανίζεται ένας χαρακτήρας σε μια λέξη.</p>`;
+}
+// Ερώτηση 18 - Πολλαπλής Επιλογής (Άθροισμα δύο αριθμών)
+let q18 = document.querySelector('input[name="q18"]:checked');
+if (q18 && q18.value == "c") {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 18: Σωστή απάντηση! <span class="correct-answer">Ζητάμε από τον χρήστη να εισάγει τον δεύτερο αριθμό</span></p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 18: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: <span class="correct-answer">Ζητάμε από τον χρήστη να εισάγει τον δεύτερο αριθμό</span></p>`;
+}
+// Ερώτηση 19 - Ανάπτυξη Αλγορίθμου (Εμφάνιση αριθμών από το 1 έως το 10)
+let q19 = document.querySelector('textarea[name="q19"]').value.trim();
+if (q19.toLowerCase().includes("αριθμοί") && q19.toLowerCase().includes("1 έως 10")) {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 19: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 19: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Ο αλγόριθμος πρέπει να εμφανίζει όλους τους αριθμούς από το 1 έως το 10.</p>`;
+}
+// Ερώτηση 20 - Διορθώστε τον Αλγόριθμο (Σύγκριση δύο αριθμών)
+let q20 = document.querySelector('textarea[name="q20"]').value.trim();
+if (q20.toLowerCase().includes("μεγαλύτερος από τον δεύτερο") && q20.toLowerCase().includes("μικρότερος από τον δεύτερο")) {
+    correctAnswers += 1;
+    resultsDiv.innerHTML += `<p>Ερώτηση 20: Σωστή απάντηση!</p>`;
+} else {
+    resultsDiv.innerHTML += `<p>Ερώτηση 20: <span class="wrong-answer">Λάθος απάντηση</span>. Σωστή απάντηση: Αν ο πρώτος αριθμός είναι μεγαλύτερος από τον δεύτερο, εμφανίζουμε "Ο πρώτος αριθμός είναι μεγαλύτερος". Αλλιώς εμφανίζουμε το αντίθετο.</p>`;
+}
+
+
+
+            // Συνεχίστε για τις υπόλοιπες ερωτήσεις με τον ίδιο τρόπο...
+
+            // Ερωτήσεις ανάπτυξης - Προσθέστε βαθμολογία για τις αναπτυγμένες ερωτήσεις
+            let openQuestionScore = 0; // Παράδειγμα: Οι ερωτήσεις ανάπτυξης βαθμολογούνται με 0 μονάδα.
+
+            // Τελική βαθμολογία
+            let finalScore = (correctAnswers + openQuestionScore);  // Προσθέτουμε τις μονάδες από τις ερωτήσεις ανάπτυξης στο σύνολο των σωστών απαντήσεων
+
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let email = document.getElementById("email").value;
+
+            // Εμφάνιση του τελικού σκορ
+            resultsDiv.innerHTML += `<h2>Ο τελικός σας βαθμός είναι: ${finalScore}/${totalQuestions + openQuestionScore}</h2>`;
+
+             // Αποστολή email με τα αποτελέσματα στον καθηγητή
+            let templateParams = {
+                from_name: `${name} ${surname}`,
+                to_name: 'Καθηγητής',
+                student_email: email,
+                final_score: finalScore,
+                message: `Ο μαθητής ${name} ${surname} ολοκλήρωσε το φύλλο εργασίας με βαθμολογία ${finalScore}/${totalQuestions}.`
+            };
+
+            emailjs.send('service_7p18o8d', 'template_gfmyyzr', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        }
+    </script>
+
+</body>
+</html>

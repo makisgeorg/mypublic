@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Φύλλο Εργασίας: Η Έννοια του Προβλήματος</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .worksheet-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet-container">
+        <h1>Φύλλο Εργασίας: Η Έννοια του Προβλήματος στον Προγραμματισμό</h1>
+        <form id="worksheetForm">
+            <!-- Ερωτήσεις Συμπλήρωσης Κενών -->
+            <h2>Συμπλήρωση Κενών</h2>
+
+
+            <div class="question">
+                <h3>1. Ένα πρόβλημα είναι μία ______ για την οποία ζητάμε λύση και η λύση δεν είναι γνωστή ή προφανής.</h3>
+                <input type="text" name="q1">
+            </div>
+
+
+            <div class="question">
+                <h3>2. Ο αλγόριθμος είναι μια σειρά από ______ που εκτελούνται για την επίλυση ενός προβλήματος.</h3>
+                <input type="text" name="q2">
+            </div>
+
+
+            <div class="question">
+                <h3>3. Η ανάλυση ενός προβλήματος περιλαμβάνει τον χωρισμό του σε ______ .</h3>
+                <input type="text" name="q3">
+            </div>
+
+
+            <!-- Ερωτήσεις Πολλαπλής Επιλογής -->
+            <h2>Πολλαπλής Επιλογής</h2>
+
+
+            <div class="question">
+                <h3>4. Ποιο είναι το πρώτο βήμα στην επίλυση ενός προγραμματιστικού προβλήματος;</h3>
+                <select name="q4">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Η γραφή κώδικα.</option>
+                    <option value="B">Η κατανόηση του προβλήματος.</option>
+                    <option value="C">Η επιλογή γλώσσας προγραμματισμού.</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>5. Ποιο από τα παρακάτω είναι παράδειγμα σαφώς ορισμένης λύσης σε ένα πρόβλημα;</h3>
+                <select name="q5">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Ένα πρόγραμμα που επιστρέφει σωστά αποτελέσματα.</option>
+                    <option value="B">Ένα διάγραμμα ροής χωρίς κώδικα.</option>
+                    <option value="C">Μια γενική ιδέα χωρίς συγκεκριμένα βήματα.</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>6. Ποιο από τα παρακάτω είναι η σωστή σειρά για την επίλυση ενός προβλήματος;</h3>
+                <select name="q6">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Υλοποίηση, ανάλυση, δοκιμή.</option>
+                    <option value="B">Κατανόηση, ανάλυση, σύνθεση, γενίκευση.</option>
+                    <option value="C">Δοκιμή, υλοποίηση, σχεδίαση.</option>
+                </select>
+            </div>
+
+
+            <!-- Ερωτήσεις Σωστό ή Λάθος -->
+            <h2>Σωστό ή Λάθος</h2>
+
+
+            <div class="question">
+                <h3>7. Ο αλγόριθμος είναι ένα σύνολο εντολών που εκτελούνται ταυτόχρονα.</h3>
+                <select name="q7">
+                    <option value="">--Επιλογή--</option>
+                    <option value="True">Σωστό</option>
+                    <option value="False">Λάθος</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>8. Το πρώτο βήμα στην επίλυση προβλημάτων είναι η κατανόηση των απαιτήσεων.</h3>
+                <select name="q8">
+                    <option value="">--Επιλογή--</option>
+                    <option value="True">Σωστό</option>
+                    <option value="False">Λάθος</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>9. Η ανάλυση προβλήματος και η γραφή κώδικα είναι το ίδιο πράγμα.</h3>
+                <select name="q9">
+                    <option value="">--Επιλογή--</option>
+                    <option value="True">Σωστό</option>
+                    <option value="False">Λάθος</option>
+                </select>
+            </div>
+
+
+            <!-- Ερωτήσεις Αντιστοίχισης -->
+            <h2>Αντιστοίχιση</h2>
+
+
+            <div class="question">
+                <h3>10. Αφαίρεση είναι:</h3>
+                <select name="q10">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Η διαδικασία διάσπασης ενός προβλήματος σε μικρότερα μέρη.</option>
+                    <option value="B">Η αφαίρεση περιττών λεπτομερειών για την επίλυση του προβλήματος.</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>11. Διαίρει και βασίλευε είναι:</h3>
+                <select name="q11">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Η διαδικασία επίλυσης ενός προβλήματος χωρίζοντάς το σε μικρότερα κομμάτια.</option>
+                    <option value="B">Η εξαγωγή δεδομένων από ένα πρόβλημα.</option>
+                </select>
+            </div>
+
+
+            <div class="question">
+                <h3>12. Υλοποίηση είναι:</h3>
+                <select name="q12">
+                    <option value="">--Επιλογή--</option>
+                    <option value="A">Η φάση κατά την οποία ο κώδικας γράφεται και ελέγχεται.</option>
+                    <option value="B">Η φάση όπου σχεδιάζεται η επίλυση.</option>
+                </select>
+            </div>
+            
+            <button type="button" onclick="checkAnswers()">Υποβολή</button>
+        </form>
+
+
+        <div id="results"></div>
+    </div>
+
+
+    <script>
+        // Σωστές απαντήσεις
+        const correctAnswers = {
+            q1: 'κατάσταση',
+            q2: 'βήματα',
+            q3: 'υποπροβλήματα',
+            q4: 'B',
+            q5: 'A',
+            q6: 'B',
+            q7: 'False',
+            q8: 'True',
+            q9: 'False',
+            q10: 'B',
+            q11: 'A',
+            q12: 'A'
+        };
+
+
+        function checkAnswers() {
+            let form = document.forms['worksheetForm'];
+            let results = "<h3>Αποτελέσματα:</h3>";
+            let correctCount = 0;
+
+
+            // Έλεγχος απαντήσεων
+            for (let i = 1; i <= 12; i++) {
+                let question = 'q' + i;
+                let userAnswer = form[question].value.trim().toLowerCase();
+                let correctAnswer = correctAnswers[question].toLowerCase();
+
+
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                    results += `<p>Ερώτηση ${i}: <span class="correct">Σωστό!</span></p>`;
+                } else {
+                    results += `<p>Ερώτηση ${i}: <span class="incorrect">Λάθος!</span> Η σωστή απάντηση είναι: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+
+            results += `<h3>Τελικό Σκορ: ${correctCount}/12</h3>`;
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+</body>
+</html>
