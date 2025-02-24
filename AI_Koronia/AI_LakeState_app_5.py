@@ -79,9 +79,11 @@ def train_model(num_epochs):
     batch_size = 32
     img_height = 128
     img_width = 128
-    train_dir = r"C:\Users\USER\AIKoronia\images\set\training"
-    test_dir  = r"C:\Users\USER\AIKoronia\images\set\testing"
-    
+    # train_dir = r"C:\Users\USER\AIKoronia\images\set\training"
+    # test_dir  = r"C:\Users\USER\AIKoronia\images\set\testing"
+    train_dir = "./data/training"
+    test_dir  = "./data/testing"
+
     # Load datasets using image_dataset_from_directory
     train_ds = tf.keras.preprocessing.image_dataset_from_directory(
         train_dir,
