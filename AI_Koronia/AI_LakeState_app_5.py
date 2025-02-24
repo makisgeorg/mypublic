@@ -11,7 +11,8 @@ import time
 import matplotlib.pyplot as plt
 
 # Set Tesseract executable path (update if necessary)
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 ###############################
 # Utility Functions
