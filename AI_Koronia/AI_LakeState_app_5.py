@@ -178,7 +178,7 @@ if mode == "Extract Frames for Training":
                     break
         
             st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
-        for cat in subfolders:
+            for cat in subfolders:
             cat_folder = os.path.join(base_folder, cat)
             files = os.listdir(cat_folder)
             if files:
