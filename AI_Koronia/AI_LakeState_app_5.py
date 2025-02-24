@@ -170,7 +170,11 @@ if mode == "Extract Frames for Training":
                     frame = gif.convert("RGB")
                     avg = average_color(frame)
                     category = determine_category(avg)
-                    frame_path = os.path.join(base_folder, category, f"frame_{frame_number}.jpg")
+                    frame_dir = os.path.join(base_folder, category)
+                    # Ensure the directory exists before saving.
+                    if not os.path.exists(frame_dir):
+                         os.makedirs(frame_dir, exist_ok=True)
+                    frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
                     frame.save(frame_path, "JPEG")
                     saved_counts[category] += 1
                     frame_number += 1
@@ -214,7 +218,11 @@ elif mode == "Extract Frames for Testing":
                     frame_2 = gif_2.convert("RGB")
                     avg_2 = average_color(frame_2)
                     category_2 = determine_category(avg_2)
-                    frame_path_2 = os.path.join(base_folder_2, category_2, f"frame_{frame_number_2}.jpg")
+                    frame_dir_2 = os.path.join(base_folder_2, category_2)
+                    # Ensure the directory exists before saving.
+                    if not os.path.exists(frame_dir_2):
+                        os.makedirs(frame_dir_2, exist_ok=True)
+                    frame_path_2 = os.path.join(frame_dir_2, f"frame_{frame_number}.jpg")
                     frame_2.save(frame_path_2, "JPEG")
                     saved_counts_2[category_2] += 1
                     frame_number_2 += 1
