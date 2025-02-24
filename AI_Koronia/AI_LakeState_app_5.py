@@ -154,7 +154,7 @@ if mode == "Extract Frames for Training":
     uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
     
     if uploaded_file is not None:
-        base_folder = r"images\set\training"
+       base_folder = "./data/training" # base_folder = r"images\set\training"
         subfolders = ["good", "moderate", "bad"]
         os.makedirs(base_folder, exist_ok=True)
         for folder in subfolders:
@@ -198,7 +198,7 @@ elif mode == "Extract Frames for Testing":
      uploaded_file_2 = st.file_uploader("Upload a GIF file", type=["gif"])
      
      if uploaded_file_2 is not None:
-        base_folder_2 = r"images\set\testing"
+       base_folder_2 = "./data/training" # base_folder_2 = r"images\set\testing"
         subfolders_2 = ["good", "moderate", "bad"]
         os.makedirs(base_folder_2, exist_ok=True)
         for folder_2 in subfolders_2:
