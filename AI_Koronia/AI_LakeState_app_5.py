@@ -184,27 +184,27 @@ if mode == "Extract Frames for Training":
                         break
             return frames, saved_counts
            # In your Extract Frames mode:
-           if mode == "Extract Frames for Training":
-               st.title("Extract GIF Frames for Training")
-               st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color.")
-               uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
+               if mode == "Extract Frames for Training":
+                   st.title("Extract GIF Frames for Training")
+                   st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color.")
+                   uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
                
-               if uploaded_file is not None:
+                   if uploaded_file is not None:
                    # Cache the extraction results.
-                   frames, saved_counts = extract_frames(uploaded_file)
-                   st.success(f"Extracted {len(frames)} frames: {saved_counts}")
+                       frames, saved_counts = extract_frames(uploaded_file)
+                       st.success(f"Extracted {len(frames)} frames: {saved_counts}")
           #  st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
                    # Display 3 sample frames per category
-                   subfolders = ["good", "moderate", "bad"]
-                   for cat in subfolders:
+                       subfolders = ["good", "moderate", "bad"]
+                       for cat in subfolders:
                        # Construct path to the folder in /tmp
                 #cat_folder = os.path.join(base_folder, cat)
-                       cat_folder = os.path.join("/tmp", "train_dataset", cat)
-                       if os.path.exists(cat_folder):
-                            files = os.listdir(cat_folder)
-                            if files:
-                                images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
-                                st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
+                           cat_folder = os.path.join("/tmp", "train_dataset", cat)
+                           if os.path.exists(cat_folder):
+                                files = os.listdir(cat_folder)
+                                if files:
+                                    images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
+                                    st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
                 
 ###############################
 # Mode 2: Extract Frames for Testing
