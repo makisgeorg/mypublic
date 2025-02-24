@@ -179,11 +179,11 @@ if mode == "Extract Frames for Training":
         
             st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
             for cat in subfolders:
-            cat_folder = os.path.join(base_folder, cat)
-            files = os.listdir(cat_folder)
-            if files:
-                images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
-                st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
+                cat_folder = os.path.join(base_folder, cat)
+                files = os.listdir(cat_folder)
+                if files:
+                    images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
+                    st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
                 
 ###############################
 # Mode 2: Extract Frames for Testing
@@ -222,12 +222,12 @@ elif mode == "Extract Frames for Testing":
                     break
         
             st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
-        for cat_2 in subfolders_2:
-            cat_folder_2 = os.path.join(base_folder_2, cat_2)
-            files_2 = os.listdir(cat_folder_2)
-            if files_2:
-                images_2 = [Image.open(os.path.join(cat_folder_2, f)) for f in files_2[:3]]
-                st.image(images_2, caption=[f"Examples from {cat_2}"] * len(images_2), width=150)
+            for cat_2 in subfolders_2:
+                cat_folder_2 = os.path.join(base_folder_2, cat_2)
+                files_2 = os.listdir(cat_folder_2)
+                if files_2:
+                    images_2 = [Image.open(os.path.join(cat_folder_2, f)) for f in files_2[:3]]
+                    st.image(images_2, caption=[f"Examples from {cat_2}"] * len(images_2), width=150)
 
 ###############################
 # Mode 3: Train Model
