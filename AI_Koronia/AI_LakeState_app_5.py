@@ -184,7 +184,7 @@ if mode == "Extract Frames for Training":
                         break
             return frames, saved_counts
            # In your Extract Frames mode:
-               if mode == "Extract Frames for Training":
+            if mode == "Extract Frames for Training":
                    st.title("Extract GIF Frames for Training")
                    st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color.")
                    uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
