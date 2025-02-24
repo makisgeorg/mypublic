@@ -159,29 +159,29 @@ if mode == "Extract Frames for Training":
        os.makedirs(base_folder, exist_ok=True)
        for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
-        @st.cache_data
-        def extract_frames(uploaded_file):
-            gif = Image.open(uploaded_file)
-            frame_number = 0
-            frames = []
-            saved_counts = {"good": 0, "moderate": 0, "bad": 0}
+            @st.cache_data
+            def extract_frames(uploaded_file):
+                gif = Image.open(uploaded_file)
+                frame_number = 0
+                frames = []
+                saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
-            while True:
-                try:
-                    gif.seek(frame_number)
-                    frame = gif.convert("RGB")
-                    avg = average_color(frame)
-                    category = determine_category(avg)
-                    frame_dir = os.path.join(base_folder, category)
-                    # Ensure the directory exists before saving.
-                    if not os.path.exists(frame_dir):
-                         os.makedirs(frame_dir, exist_ok=True)
-                    frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
-                    frame.save(frame_path, "JPEG")
-                    saved_counts[category] += 1
-                    frame_number += 1
-                except EOFError:
-                    break
+                while True:
+                    try:
+                        gif.seek(frame_number)
+                        frame = gif.convert("RGB")
+                        avg = average_color(frame)
+                        category = determine_category(avg)
+                        frame_dir = os.path.join(base_folder, category)
+                        # Ensure the directory exists before saving.
+                        if not os.path.exists(frame_dir):
+                             os.makedirs(frame_dir, exist_ok=True)
+                        frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
+                        frame.save(frame_path, "JPEG")
+                        saved_counts[category] += 1
+                        frame_number += 1
+                    except EOFError:
+                        break
         
             st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
             for cat in subfolders:
