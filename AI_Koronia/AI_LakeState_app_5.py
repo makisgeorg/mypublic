@@ -177,7 +177,7 @@ if mode == "Extract Frames for Training":
                 except EOFError:
                     break
         
-        st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
+            st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
         for cat in subfolders:
             cat_folder = os.path.join(base_folder, cat)
             files = os.listdir(cat_folder)
@@ -221,7 +221,7 @@ elif mode == "Extract Frames for Testing":
                 except EOFError:
                     break
         
-        st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
+            st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
         for cat_2 in subfolders_2:
             cat_folder_2 = os.path.join(base_folder_2, cat_2)
             files_2 = os.listdir(cat_folder_2)
