@@ -160,9 +160,9 @@ if mode == "Extract Frames for Training":
        for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
         
-        gif = Image.open(uploaded_file)
-        frame_number = 0
-        saved_counts = {"good": 0, "moderate": 0, "bad": 0}
+            gif = Image.open(uploaded_file)
+            frame_number = 0
+            saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
         while True:
             try:
@@ -204,9 +204,9 @@ elif mode == "Extract Frames for Testing":
        for folder_2 in subfolders_2:
             os.makedirs(os.path.join(base_folder_2, folder_2), exist_ok=True)
         
-        gif_2 = Image.open(uploaded_file_2)
-        frame_number_2 = 0
-        saved_counts_2 = {"good": 0, "moderate": 0, "bad": 0}
+            gif_2 = Image.open(uploaded_file_2)
+            frame_number_2 = 0
+            saved_counts_2 = {"good": 0, "moderate": 0, "bad": 0}
         
         while True:
             try:
