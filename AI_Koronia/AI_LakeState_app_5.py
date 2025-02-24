@@ -164,17 +164,17 @@ if mode == "Extract Frames for Training":
             frame_number = 0
             saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
-        while True:
-            try:
-                gif.seek(frame_number)
-                frame = gif.convert("RGB")
-                avg = average_color(frame)
-                category = determine_category(avg)
-                frame_path = os.path.join(base_folder, category, f"frame_{frame_number}.jpg")
-                frame.save(frame_path, "JPEG")
-                saved_counts[category] += 1
-                frame_number += 1
-            except EOFError:
+            while True:
+                try:
+                    gif.seek(frame_number)
+                    frame = gif.convert("RGB")
+                    avg = average_color(frame)
+                    category = determine_category(avg)
+                    frame_path = os.path.join(base_folder, category, f"frame_{frame_number}.jpg")
+                    frame.save(frame_path, "JPEG")
+                    saved_counts[category] += 1
+                    frame_number += 1
+                except EOFError:
                 break
         
         st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
@@ -208,17 +208,17 @@ elif mode == "Extract Frames for Testing":
             frame_number_2 = 0
             saved_counts_2 = {"good": 0, "moderate": 0, "bad": 0}
         
-        while True:
-            try:
-                gif_2.seek(frame_number_2)
-                frame_2 = gif_2.convert("RGB")
-                avg_2 = average_color(frame_2)
-                category_2 = determine_category(avg_2)
-                frame_path_2 = os.path.join(base_folder_2, category_2, f"frame_{frame_number_2}.jpg")
-                frame_2.save(frame_path_2, "JPEG")
-                saved_counts_2[category_2] += 1
-                frame_number_2 += 1
-            except EOFError:
+            while True:
+                try:
+                    gif_2.seek(frame_number_2)
+                    frame_2 = gif_2.convert("RGB")
+                    avg_2 = average_color(frame_2)
+                    category_2 = determine_category(avg_2)
+                    frame_path_2 = os.path.join(base_folder_2, category_2, f"frame_{frame_number_2}.jpg")
+                    frame_2.save(frame_path_2, "JPEG")
+                    saved_counts_2[category_2] += 1
+                    frame_number_2 += 1
+                except EOFError:
                 break
         
         st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
