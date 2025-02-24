@@ -7,3 +7,4 @@ wheel
 altair
 pandas
 pytesseract==0.3.10
+matplotlib
