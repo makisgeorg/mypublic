@@ -159,9 +159,11 @@ if mode == "Extract Frames for Training":
        os.makedirs(base_folder, exist_ok=True)
        for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
-        
+        @st.cache_data
+        def extract_frames(uploaded_file):
             gif = Image.open(uploaded_file)
             frame_number = 0
+            frames = []
             saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
             while True:
