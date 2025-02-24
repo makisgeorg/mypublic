@@ -157,7 +157,7 @@ if mode == "Extract Frames for Training":
        base_folder = "./data/training" # base_folder = r"images\set\training"
        subfolders = ["good", "moderate", "bad"]
        os.makedirs(base_folder, exist_ok=True)
-        for folder in subfolders:
+       for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
         
         gif = Image.open(uploaded_file)
@@ -201,7 +201,7 @@ elif mode == "Extract Frames for Testing":
        base_folder_2 = "./data/training" # base_folder_2 = r"images\set\testing"
        subfolders_2 = ["good", "moderate", "bad"]
        os.makedirs(base_folder_2, exist_ok=True)
-        for folder_2 in subfolders_2:
+       for folder_2 in subfolders_2:
             os.makedirs(os.path.join(base_folder_2, folder_2), exist_ok=True)
         
         gif_2 = Image.open(uploaded_file_2)
