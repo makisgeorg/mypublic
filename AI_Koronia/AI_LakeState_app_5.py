@@ -175,7 +175,7 @@ if mode == "Extract Frames for Training":
                     saved_counts[category] += 1
                     frame_number += 1
                 except EOFError:
-                break
+                    break
         
         st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
         for cat in subfolders:
@@ -219,7 +219,7 @@ elif mode == "Extract Frames for Testing":
                     saved_counts_2[category_2] += 1
                     frame_number_2 += 1
                 except EOFError:
-                break
+                    break
         
         st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
         for cat_2 in subfolders_2:
