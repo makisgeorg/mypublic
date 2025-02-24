@@ -222,7 +222,7 @@ elif mode == "Extract Frames for Testing":
                     # Ensure the directory exists before saving.
                     if not os.path.exists(frame_dir_2):
                         os.makedirs(frame_dir_2, exist_ok=True)
-                    frame_path_2 = os.path.join(frame_dir_2, f"frame_{frame_number}.jpg")
+                    frame_path_2 = os.path.join(frame_dir_2, f"frame_{frame_number_2}.jpg")
                     frame_2.save(frame_path_2, "JPEG")
                     saved_counts_2[category_2] += 1
                     frame_number_2 += 1
