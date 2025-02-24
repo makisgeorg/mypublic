@@ -155,8 +155,8 @@ if mode == "Extract Frames for Training":
     
     if uploaded_file is not None:
        base_folder = "./data/training" # base_folder = r"images\set\training"
-        subfolders = ["good", "moderate", "bad"]
-        os.makedirs(base_folder, exist_ok=True)
+       subfolders = ["good", "moderate", "bad"]
+       os.makedirs(base_folder, exist_ok=True)
         for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
         
@@ -199,8 +199,8 @@ elif mode == "Extract Frames for Testing":
      
      if uploaded_file_2 is not None:
        base_folder_2 = "./data/training" # base_folder_2 = r"images\set\testing"
-        subfolders_2 = ["good", "moderate", "bad"]
-        os.makedirs(base_folder_2, exist_ok=True)
+       subfolders_2 = ["good", "moderate", "bad"]
+       os.makedirs(base_folder_2, exist_ok=True)
         for folder_2 in subfolders_2:
             os.makedirs(os.path.join(base_folder_2, folder_2), exist_ok=True)
         
