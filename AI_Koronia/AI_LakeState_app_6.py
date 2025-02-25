@@ -182,7 +182,7 @@ if mode == "Extract Frames for Training":
                         frame_number += 1
                     except EOFError:
                         break
-            return frames, saved_counts
+                return frames, saved_counts
            # In your Extract Frames mode:
             if mode == "Extract Frames for Training":
                    st.title("Extract GIF Frames for Training")
