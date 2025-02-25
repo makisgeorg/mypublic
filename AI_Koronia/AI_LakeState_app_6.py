@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # Set Tesseract executable path (update if necessary)
 
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = "tesseract"
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 
 ###############################
