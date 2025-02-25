@@ -16,9 +16,9 @@ import pytesseract
 
 pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
-import subprocess
-result = subprocess.run(["which", "tesseract"], capture_output=True, text=True)
-st.write("Tesseract is located at:", result.stdout.strip())
+# import subprocess
+# result = subprocess.run(["which", "tesseract"], capture_output=True, text=True)
+# st.write("Tesseract is located at:", result.stdout.strip())
 
 
 
@@ -63,11 +63,11 @@ def extract_date_from_frame(frame, crop_box=None):
     """
     width, height = frame.size
     if crop_box is None:
-        crop_box = (width - 180, 0, width, 70)
+        crop_box = (width - 160, 0, width, 60)
     date_region = frame.crop(crop_box).convert("L")
     # Binarize the image (adjust threshold as needed)
     date_region = date_region.point(lambda x: 0 if x < 100 else 255, '1')
-    custom_config = r'--oem 3 --psm 6'
+    custom_config = r'--oem 3 --psm 7'
     text = pytesseract.image_to_string(date_region, config=custom_config)
     text = text.strip(" \n\r\t,«.")
     # Uncomment for debugging:
