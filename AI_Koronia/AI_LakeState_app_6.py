@@ -5,14 +5,15 @@ import numpy as np
 import os
 import altair as alt
 import pandas as pd
-import pytesseract
 import re
 import time
 import matplotlib.pyplot as plt
 
 # Set Tesseract executable path (update if necessary)
-# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+import pytesseract
 pytesseract.pytesseract.tesseract_cmd = "tesseract"
+
 
 ###############################
 # Utility Functions
