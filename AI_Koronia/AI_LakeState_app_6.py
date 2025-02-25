@@ -82,6 +82,7 @@ def train_model(num_epochs):
     img_width = 128
     # train_dir = r"C:\Users\USER\AIKoronia\images\set\training"
     # test_dir  = r"C:\Users\USER\AIKoronia\images\set\testing"
+    base_folder = os.path.join("/tmp", "train_dataset")
     train_dir = os.path.join(base_folder, "training") # train_dir = "/tmp/data/training"
     test_dir  = os.path.join(base_folder, "testing") # test_dir  = "/tmp/data/testing"
 
@@ -223,7 +224,8 @@ elif mode == "Extract Frames for Testing":
        os.makedirs(base_folder, exist_ok=True)
        for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
-        
+           
+           
             gif = Image.open(uploaded_file)
             frame_number = 0
             saved_counts = {"good": 0, "moderate": 0, "bad": 0}
