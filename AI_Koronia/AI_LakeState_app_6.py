@@ -148,7 +148,7 @@ def train_model(num_epochs):
 ###############################
 # Sidebar: Mode Selection
 ###############################
-mode = st.sidebar.radio("Select Mode", ["Extract Frames for Training", "Extract Frames for Testing", "Train Model", "Test Model"])
+mode = st.sidebar.radio("Select Mode", ["Extract Frames for Training", "Extract Frames for Testing", "Train the CNN Model", "Run AI Analysis"])
 
 ###############################
 # Mode 1: Extract Frames for Training ---
@@ -264,7 +264,7 @@ elif mode == "Extract Frames for Testing":
 ###############################
 # Mode 3: Train Model
 ###############################
-elif mode == "Train Model":
+elif mode == "Train the CNN Model":
     st.title("Train the CNN Model")
     st.write("This process trains the CNN model on your dataset and saves the model as 'AI_Koronia_Model_6.keras'.")
     num_epochs = st.number_input("Enter number of epochs", min_value=1, max_value=100, value=5, step=1)
@@ -288,7 +288,7 @@ elif mode == "Train Model":
 ###############################
 # Mode 4: Test Model (with Monthly Bar Chart & Percentage)
 ###############################
-elif mode == "Test Model":
+elif mode == "Run AI Analysis":
     st.title("Test Computer Vision Model with Monthly Bar Chart")
     st.write("Upload a GIF file for prediction. The app will classify each frame, extract the date (YYYY-MM-DD) from the top-right, and produce a bar chart showing the monthly distribution and percentage of frames predicted as good, moderate, or bad.")
     
