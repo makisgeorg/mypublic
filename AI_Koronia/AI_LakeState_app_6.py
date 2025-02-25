@@ -13,7 +13,12 @@ import matplotlib.pyplot as plt
 
 import pytesseract
 pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
-
+import subprocess
+try:
+    subprocess.run(["tesseract", "--version"], check=True)
+    st.write("Tesseract is installed.")
+except Exception as e:
+    st.write("Tesseract is NOT installed:", e)
 
 ###############################
 # Utility Functions
