@@ -151,7 +151,7 @@ if mode == "Extract Frames for Training":
     st.write("- **moderate** for dominant green")
     st.write("- **bad** for dominant red or purple (if red is high relative to blue)")
     
-    uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
+    uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_train")
     
     if uploaded_file is not None:
        base_folder = os.path.join("/tmp", "train_dataset") #"./data/training" # base_folder = r"images\set\training" os.path.join("/tmp", "frames_jpg")
@@ -187,7 +187,6 @@ if mode == "Extract Frames for Training":
             if mode == "Extract Frames for Training":
                    st.title("Extract GIF Frames for Training")
                    st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color.")
-                   uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"])
                
                    if uploaded_file is not None:
                    # Cache the extraction results.
@@ -216,43 +215,43 @@ elif mode == "Extract Frames for Testing":
      st.write("- **moderate** for dominant green")
      st.write("- **bad** for dominant red or purple (if red is high relative to blue)")
      
-     uploaded_file_2 = st.file_uploader("Upload a GIF file", type=["gif"])
+     uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_test")
      
-     if uploaded_file_2 is not None:
-       base_folder_2 = os.path.join("/tmp", "test_dataset") #"./data/training" # base_folder_2 = r"images\set\testing"
-       subfolders_2 = ["good", "moderate", "bad"]
-       os.makedirs(base_folder_2, exist_ok=True)
-       for folder_2 in subfolders_2:
-            os.makedirs(os.path.join(base_folder_2, folder_2), exist_ok=True)
+     if uploaded_file is not None:
+       base_folder = os.path.join("/tmp", "test_dataset") #"./data/training" # base_folder = r"images\set\testing"
+       subfolders = ["good", "moderate", "bad"]
+       os.makedirs(base_folder, exist_ok=True)
+       for folder in subfolders:
+            os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
         
-            gif_2 = Image.open(uploaded_file_2)
-            frame_number_2 = 0
-            saved_counts_2 = {"good": 0, "moderate": 0, "bad": 0}
+            gif = Image.open(uploaded_file)
+            frame_number = 0
+            saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
             while True:
                 try:
-                    gif_2.seek(frame_number_2)
-                    frame_2 = gif_2.convert("RGB")
-                    avg_2 = average_color(frame_2)
-                    category_2 = determine_category(avg_2)
-                    frame_dir_2 = os.path.join(base_folder_2, category_2)
+                    gif.seek(frame_number)
+                    frame = gif.convert("RGB")
+                    avg = average_color(frame)
+                    category = determine_category(avg)
+                    frame_dir = os.path.join(base_folder, category)
                     # Ensure the directory exists before saving.
-                    if not os.path.exists(frame_dir_2):
-                        os.makedirs(frame_dir_2, exist_ok=True)
-                    frame_path_2 = os.path.join(frame_dir_2, f"frame_{frame_number_2}.jpg")
-                    frame_2.save(frame_path_2, "JPEG")
-                    saved_counts_2[category_2] += 1
-                    frame_number_2 += 1
+                    if not os.path.exists(frame_dir):
+                        os.makedirs(frame_dir, exist_ok=True)
+                    frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
+                    frame.save(frame_path, "JPEG")
+                    saved_counts[category] += 1
+                    frame_number += 1
                 except EOFError:
                     break
         
-            st.success(f"Extracted {frame_number_2} frames and saved them under '{base_folder_2}': {saved_counts_2}")
-            for cat_2 in subfolders_2:
-                cat_folder_2 = os.path.join(base_folder_2, cat_2)
-                files_2 = os.listdir(cat_folder_2)
-                if files_2:
-                    images_2 = [Image.open(os.path.join(cat_folder_2, f)) for f in files_2[:3]]
-                    st.image(images_2, caption=[f"Examples from {cat_2}"] * len(images_2), width=150)
+            st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
+            for cat in subfolders:
+                cat_folder = os.path.join(base_folder, cat)
+                files = os.listdir(cat_folder)
+                if files:
+                    images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
+                    st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
 
 ###############################
 # Mode 3: Train Model
@@ -285,7 +284,7 @@ elif mode == "Test Model":
     st.title("Test Computer Vision Model with Monthly Bar Chart")
     st.write("Upload a GIF file for prediction. The app will classify each frame, extract the date (YYYY-MM-DD) from the top-right, and produce a bar chart showing the monthly distribution and percentage of frames predicted as good, moderate, or bad.")
     
-    uploaded_file = st.file_uploader("Upload an image", type=["gif", "jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Upload an image", type=["gif", "jpg", "jpeg", "png"], key="gif_test")
     
     if uploaded_file is not None:
         if uploaded_file.type == "image/gif":
