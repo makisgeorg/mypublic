@@ -155,7 +155,7 @@ if mode == "Extract Frames for Training":
     uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_train")
     
     if uploaded_file is not None:
-       base_folder = os.path.join("/tmp", "train_dataset/training") #"./data/training" # base_folder = r"images\set\training" os.path.join("/tmp", "frames_jpg")
+       base_folder = os.path.join("/tmp", "./train_dataset/training") #"./data/training" # base_folder = r"images\set\training" os.path.join("/tmp", "frames_jpg")
        subfolders = ["good", "moderate", "bad"]
        os.makedirs(base_folder, exist_ok=True)
        for folder in subfolders:
@@ -199,7 +199,7 @@ if mode == "Extract Frames for Training":
                        for cat in subfolders:
                        # Construct path to the folder in /tmp
                 #cat_folder = os.path.join(base_folder, cat)
-                           cat_folder = os.path.join("/tmp", "train_dataset/training", cat)
+                           cat_folder = os.path.join("/tmp", "./train_dataset/training", cat)
                            if os.path.exists(cat_folder):
                                 files = os.listdir(cat_folder)
                                 if files:
