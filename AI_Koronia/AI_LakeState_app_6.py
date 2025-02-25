@@ -203,15 +203,15 @@ if mode == "Extract Frames for Training":
 ###############################
 elif mode == "Extract Frames for Testing":
      st.title("Extract GIF Frames for Training")
-    # Use raw strings or forward slashes to avoid escape sequence issues.
-    st.write(r"Upload a GIF file. Frames will be extracted and grouped by dominant color into subfolders under '/tmp/train_dataset/testing':")
-    st.write("- **good** for dominant blue")
-    st.write("- **moderate** for dominant green")
-    st.write("- **bad** for dominant red or purple (if red is high relative to blue)")
+     # Use raw strings or forward slashes to avoid escape sequence issues.
+     st.write(r"Upload a GIF file. Frames will be extracted and grouped by dominant color into subfolders under '/tmp/train_dataset/testing':")
+     st.write("- **good** for dominant blue")
+     st.write("- **moderate** for dominant green")
+     st.write("- **bad** for dominant red or purple (if red is high relative to blue)")
     
-    uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_test")
+     uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_test")
     
-    if uploaded_file is not None:
+     if uploaded_file is not None:
         # Define the base folder in a writable temporary location.
         base_folder = os.path.join("/tmp", "train_dataset", "testing")
         subfolders = ["good", "moderate", "bad"]
