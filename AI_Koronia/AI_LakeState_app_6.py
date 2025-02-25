@@ -143,11 +143,12 @@ def train_model(num_epochs):
 mode = st.sidebar.radio("Select Mode", ["Extract Frames for Training", "Extract Frames for Testing", "Train Model", "Test Model"])
 
 ###############################
-# Mode 1: Extract Frames for Training
-###############################
-if mode == "Extract Frames for Training":
+# Mode 1: Extract Frames for Training ---
+################################
+if st.sidebar.radio("Select Mode", ["Extract Frames for Training", "Train Model", "Test Model"]) == "Extract Frames for Training":
     st.title("Extract GIF Frames for Training")
-    st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color into subfolders under 'images\set\training':")
+    # Use raw strings or forward slashes to avoid escape sequence issues.
+    st.write(r"Upload a GIF file. Frames will be extracted and grouped by dominant color into subfolders under '/tmp/train_dataset/training':")
     st.write("- **good** for dominant blue")
     st.write("- **moderate** for dominant green")
     st.write("- **bad** for dominant red or purple (if red is high relative to blue)")
@@ -155,56 +156,47 @@ if mode == "Extract Frames for Training":
     uploaded_file = st.file_uploader("Upload a GIF file", type=["gif"], key="gif_extract_train")
     
     if uploaded_file is not None:
-       base_folder = os.path.join("/tmp", "./train_dataset/training") #"./data/training" # base_folder = r"images\set\training" os.path.join("/tmp", "frames_jpg")
-       subfolders = ["good", "moderate", "bad"]
-       os.makedirs(base_folder, exist_ok=True)
-       for folder in subfolders:
+        # Define the base folder in a writable temporary location.
+        base_folder = os.path.join("/tmp", "train_dataset", "training")
+        subfolders = ["good", "moderate", "bad"]
+        os.makedirs(base_folder, exist_ok=True)
+        for folder in subfolders:
             os.makedirs(os.path.join(base_folder, folder), exist_ok=True)
-            @st.cache_data
-            def extract_frames(uploaded_file):
-                gif = Image.open(uploaded_file)
-                frame_number = 0
-                frames = []
-                saved_counts = {"good": 0, "moderate": 0, "bad": 0}
         
-                while True:
-                    try:
-                        gif.seek(frame_number)
-                        frame = gif.convert("RGB")
-                        avg = average_color(frame)
-                        category = determine_category(avg)
-                        frame_dir = os.path.join(base_folder, category)
-                        # Ensure the directory exists before saving.
-                        if not os.path.exists(frame_dir):
-                             os.makedirs(frame_dir, exist_ok=True)
-                        frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
-                        frame.save(frame_path, "JPEG")
-                        saved_counts[category] += 1
-                        frame_number += 1
-                    except EOFError:
-                        break
-                return frames, saved_counts
-           # In your Extract Frames mode:
-            if mode == "Extract Frames for Training":
-                   st.title("Extract GIF Frames for Training")
-                   st.write("Upload a GIF file. Frames will be extracted and grouped by dominant color.")
-               
-                   if uploaded_file is not None:
-                   # Cache the extraction results.
-                       frames, saved_counts = extract_frames(uploaded_file)
-                       st.success(f"Extracted {len(frames)} frames: {saved_counts}")
-          #  st.success(f"Extracted {frame_number} frames and saved them under '{base_folder}': {saved_counts}")
-                   # Display 3 sample frames per category
-                       subfolders = ["good", "moderate", "bad"]
-                       for cat in subfolders:
-                       # Construct path to the folder in /tmp
-                #cat_folder = os.path.join(base_folder, cat)
-                           cat_folder = os.path.join("/tmp", "./train_dataset/training", cat)
-                           if os.path.exists(cat_folder):
-                                files = os.listdir(cat_folder)
-                                if files:
-                                    images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
-                                    st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
+        @st.cache_data
+        def extract_frames(uploaded_file):
+            gif = Image.open(uploaded_file)
+            frame_number = 0
+            frames = []
+            saved_counts = {"good": 0, "moderate": 0, "bad": 0}
+            while True:
+                try:
+                    gif.seek(frame_number)
+                    frame = gif.convert("RGB")
+                    frames.append(frame)
+                    avg = average_color(frame)
+                    category = determine_category(avg)
+                    frame_dir = os.path.join(base_folder, category)
+                    os.makedirs(frame_dir, exist_ok=True)
+                    frame_path = os.path.join(frame_dir, f"frame_{frame_number}.jpg")
+                    frame.save(frame_path, "JPEG")
+                    saved_counts[category] += 1
+                    frame_number += 1
+                except EOFError:
+                    break
+            return frames, saved_counts
+        
+        frames, saved_counts = extract_frames(uploaded_file)
+        st.success(f"Extracted {len(frames)} frames: {saved_counts}")
+        
+        # Display up to 3 example frames per category
+        for cat in subfolders:
+            cat_folder = os.path.join(base_folder, cat)
+            if os.path.exists(cat_folder):
+                files = os.listdir(cat_folder)
+                if files:
+                    images = [Image.open(os.path.join(cat_folder, f)) for f in files[:3]]
+                    st.image(images, caption=[f"Examples from {cat}"] * len(images), width=150)
                 
 ###############################
 # Mode 2: Extract Frames for Testing
