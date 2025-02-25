@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 import pytesseract
 
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 import subprocess
 result = subprocess.run(["which", "tesseract"], capture_output=True, text=True)
