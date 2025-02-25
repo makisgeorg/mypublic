@@ -10,15 +10,13 @@ import time
 import matplotlib.pyplot as plt
 
 # Set Tesseract executable path (update if necessary)
+import subprocess
+result = subprocess.run(["which", "tesseract"], capture_output=True, text=True)
+st.write("Tesseract is located at:", result.stdout.strip())
 
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
-import subprocess
-try:
-    subprocess.run(["tesseract", "--version"], check=True)
-    st.write("Tesseract is installed.")
-except Exception as e:
-    st.write("Tesseract is NOT installed:", e)
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # or "/usr/local/bin/tesseract" based on the output
+
 
 ###############################
 # Utility Functions
