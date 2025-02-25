@@ -9,13 +9,13 @@ import re
 import time
 import matplotlib.pyplot as plt
 
-# Set Tesseract executable path (update if necessary)
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # or "/usr/local/bin/tesseract" based on the output
+
 import subprocess
 result = subprocess.run(["which", "tesseract"], capture_output=True, text=True)
 st.write("Tesseract is located at:", result.stdout.strip())
 
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # or "/usr/local/bin/tesseract" based on the output
 
 
 ###############################
