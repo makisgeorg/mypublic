@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_09653409331c2a31220945a2641694e0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_09653409331c2a31220945a2641694e0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_09653409331c2a31220945a2641694e0 = L.map(
+                "map_09653409331c2a31220945a2641694e0",
+                {
+                    center: [40.690154, 23.1183332],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1bd449ec460c668bf4e1b00156a1d23b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1bd449ec460c668bf4e1b00156a1d23b.addTo(map_09653409331c2a31220945a2641694e0);
+        
+    
+            var feature_group_ccaf0ed919642c5f7e625ad4596bc2f9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_e9b83594af4cfdeb7a7a5a05e58dd089 = L.marker(
+                [40.685742, 23.147035],
+                {
+}
+            ).addTo(feature_group_ccaf0ed919642c5f7e625ad4596bc2f9);
+        
+    
+            var icon_361ec71edc5a627be8f8bb46455e7ab2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a87799dfca5c015f69711741222d705e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3f8a4c62b7d12d33148f7b93e9f2076 = $(`<div id="html_a3f8a4c62b7d12d33148f7b93e9f2076" style="width: 100.0%; height: 100.0%;"><b>Υπερβολική άντληση νερού</b><br>Η ενδεχόμενη υπερβολική χρήση υδάτινων πηγών για γεωργικούς σκοπούς, έχει ως αποτέλεσμα τη μείωση της στάθμης της λίμνης.</div>`)[0];
+                popup_a87799dfca5c015f69711741222d705e.setContent(html_a3f8a4c62b7d12d33148f7b93e9f2076);
+            
+        
+
+        marker_e9b83594af4cfdeb7a7a5a05e58dd089.bindPopup(popup_a87799dfca5c015f69711741222d705e)
+        ;
+
+        
+    
+    
+                marker_e9b83594af4cfdeb7a7a5a05e58dd089.setIcon(icon_361ec71edc5a627be8f8bb46455e7ab2);
+            
+    
+            var marker_751a93c34cbdc4eec0229be7126009ed = L.marker(
+                [40.706203, 23.126794],
+                {
+}
+            ).addTo(feature_group_ccaf0ed919642c5f7e625ad4596bc2f9);
+        
+    
+            var icon_a4873618dea1b3c86c45cb2a36295b91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c7e2d3916dbcc2c7f9ce1b276b87797 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a95b86fa120c353e76208575ed58f7e1 = $(`<div id="html_a95b86fa120c353e76208575ed58f7e1" style="width: 100.0%; height: 100.0%;"><b>Βιομηχανική και αγροτική ρύπανση</b><br>Αν απόβλητα από βιομηχανικές μονάδες και γεωργικές δραστηριότητες (φυτοφάρμακα, λιπάσματα) καταλήγουν στη λίμνη, προκαλούν ευτροφισμό.</div>`)[0];
+                popup_8c7e2d3916dbcc2c7f9ce1b276b87797.setContent(html_a95b86fa120c353e76208575ed58f7e1);
+            
+        
+
+        marker_751a93c34cbdc4eec0229be7126009ed.bindPopup(popup_8c7e2d3916dbcc2c7f9ce1b276b87797)
+        ;
+
+        
+    
+    
+                marker_751a93c34cbdc4eec0229be7126009ed.setIcon(icon_a4873618dea1b3c86c45cb2a36295b91);
+            
+    
+            var marker_d689a8cd356788b5ad364bc781218745 = L.marker(
+                [40.69426, 23.09681],
+                {
+}
+            ).addTo(feature_group_ccaf0ed919642c5f7e625ad4596bc2f9);
+        
+    
+            var icon_83bf190063e4511cb147bae8fc0a885b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e14db089356a9b71400035d4863dcf2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48b652b703e264527e249e82b6d9055c = $(`<div id="html_48b652b703e264527e249e82b6d9055c" style="width: 100.0%; height: 100.0%;"><b>Κτηνοτροφία</b><br>Η αυξημένη συγκέντρωση αζωτούχων ενώσεων πιθανόν από τα απόβλητα των κτηνοτροφικών μονάδων επιδεινώνει την κατάσταση.</div>`)[0];
+                popup_8e14db089356a9b71400035d4863dcf2.setContent(html_48b652b703e264527e249e82b6d9055c);
+            
+        
+
+        marker_d689a8cd356788b5ad364bc781218745.bindPopup(popup_8e14db089356a9b71400035d4863dcf2)
+        ;
+
+        
+    
+    
+                marker_d689a8cd356788b5ad364bc781218745.setIcon(icon_83bf190063e4511cb147bae8fc0a885b);
+            
+    
+            var marker_48a3a134ba53747ea8588b253fa70a83 = L.marker(
+                [40.726088, 23.093419],
+                {
+}
+            ).addTo(feature_group_ccaf0ed919642c5f7e625ad4596bc2f9);
+        
+    
+            var icon_3ac4a2a1b3e80238ec0f9b8e03713a81 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c194e1f72487397ff6a59548f8fd88c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_906abe79827b66166afb85f6a7ab110c = $(`<div id="html_906abe79827b66166afb85f6a7ab110c" style="width: 100.0%; height: 100.0%;"><b>Αστικά λύματα</b><br>Η ενδεχόμενη απόρριψη ανεπεξέργαστων οικιακών λυμάτων συμβάλλει στη ρύπανση των υδάτων.</div>`)[0];
+                popup_c194e1f72487397ff6a59548f8fd88c2.setContent(html_906abe79827b66166afb85f6a7ab110c);
+            
+        
+
+        marker_48a3a134ba53747ea8588b253fa70a83.bindPopup(popup_c194e1f72487397ff6a59548f8fd88c2)
+        ;
+
+        
+    
+    
+                marker_48a3a134ba53747ea8588b253fa70a83.setIcon(icon_3ac4a2a1b3e80238ec0f9b8e03713a81);
+            
+    
+            var marker_5cffdf6faac249d2879f800a6962f0d9 = L.marker(
+                [40.66518, 23.124171],
+                {
+}
+            ).addTo(feature_group_ccaf0ed919642c5f7e625ad4596bc2f9);
+        
+    
+            var icon_da12f00f9e0391972e84303a193eea0d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3650420cffb229d026857db691a939ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b84c92d8df7ddacac986a9a985486ad7 = $(`<div id="html_b84c92d8df7ddacac986a9a985486ad7" style="width: 100.0%; height: 100.0%;"><b>Κλιματική αλλαγή</b><br>Οι εκδηλώσεις της Κλιματικής Αλλαγής επηρεάζουν τη φυσική ανανέωση των υδάτων της λίμνης.</div>`)[0];
+                popup_3650420cffb229d026857db691a939ca.setContent(html_b84c92d8df7ddacac986a9a985486ad7);
+            
+        
+
+        marker_5cffdf6faac249d2879f800a6962f0d9.bindPopup(popup_3650420cffb229d026857db691a939ca)
+        ;
+
+        
+    
+    
+                marker_5cffdf6faac249d2879f800a6962f0d9.setIcon(icon_da12f00f9e0391972e84303a193eea0d);
+            
+    
+            feature_group_ccaf0ed919642c5f7e625ad4596bc2f9.addTo(map_09653409331c2a31220945a2641694e0);
+        
+    
+            var feature_group_8d2c28839c68debd5680a37c944b6952 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_230a658d7998c99c9e353065300831c7 = L.marker(
+                [40.661835, 23.187264],
+                {
+}
+            ).addTo(feature_group_8d2c28839c68debd5680a37c944b6952);
+        
+    
+            var icon_055f8606e8fa35c39fd0232164d04fcb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1ab26dba5c75b56b54827232f951f0f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20a5a7ebe9bea9eba59dd3b7725c4e44 = $(`<div id="html_20a5a7ebe9bea9eba59dd3b7725c4e44" style="width: 100.0%; height: 100.0%;"><b>Μείωση της βιοποικιλότητας</b><br>Η λίμνη, που κάποτε αποτελούσε καταφύγιο για υδρόβια είδη και πτηνά, έχει υποστεί δραστική μείωση των πληθυσμών τους λόγω της υποβάθμισης του νερού.</div>`)[0];
+                popup_1ab26dba5c75b56b54827232f951f0f7.setContent(html_20a5a7ebe9bea9eba59dd3b7725c4e44);
+            
+        
+
+        marker_230a658d7998c99c9e353065300831c7.bindPopup(popup_1ab26dba5c75b56b54827232f951f0f7)
+        ;
+
+        
+    
+    
+                marker_230a658d7998c99c9e353065300831c7.setIcon(icon_055f8606e8fa35c39fd0232164d04fcb);
+            
+    
+            var marker_0be9dba9a72b3c57104b499a7ed944a7 = L.marker(
+                [40.66866, 23.165914],
+                {
+}
+            ).addTo(feature_group_8d2c28839c68debd5680a37c944b6952);
+        
+    
+            var icon_7850ebac1028f6dd221e1a16e1d11149 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40c9ebd8ecd9ead0308ff53d119a81a8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85def72ce034f93ef84c71d340b08a4a = $(`<div id="html_85def72ce034f93ef84c71d340b08a4a" style="width: 100.0%; height: 100.0%;"><b>Ευτροφισμός και θάνατος ιχθυοπανίδας</b><br>Η υπερσυγκέντρωση θρεπτικών ουσιών οδηγεί σε υπερβολική ανάπτυξη φυκιών, μειώνοντας το οξυγόνο και οδηγώντας στο θάνατο των ψαριών.</div>`)[0];
+                popup_40c9ebd8ecd9ead0308ff53d119a81a8.setContent(html_85def72ce034f93ef84c71d340b08a4a);
+            
+        
+
+        marker_0be9dba9a72b3c57104b499a7ed944a7.bindPopup(popup_40c9ebd8ecd9ead0308ff53d119a81a8)
+        ;
+
+        
+    
+    
+                marker_0be9dba9a72b3c57104b499a7ed944a7.setIcon(icon_7850ebac1028f6dd221e1a16e1d11149);
+            
+    
+            var marker_6bedf6c315a0d803cbb34368cf5f6a0d = L.marker(
+                [40.682252, 23.094657],
+                {
+}
+            ).addTo(feature_group_8d2c28839c68debd5680a37c944b6952);
+        
+    
+            var icon_82e4e28a2cd7f03f7f7352479f6b70e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_13245d4f5c3409b0394ccf9c5d37b37b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_379ad67841c0ac486a9e7d506ef4a997 = $(`<div id="html_379ad67841c0ac486a9e7d506ef4a997" style="width: 100.0%; height: 100.0%;"><b>Αλλοίωση του φυσικού τοπίου</b><br>Η ξηρασία και η ρύπανση έχουν μετατρέψει τη λίμνη σε ένα υποβαθμισμένο οικοσύστημα.</div>`)[0];
+                popup_13245d4f5c3409b0394ccf9c5d37b37b.setContent(html_379ad67841c0ac486a9e7d506ef4a997);
+            
+        
+
+        marker_6bedf6c315a0d803cbb34368cf5f6a0d.bindPopup(popup_13245d4f5c3409b0394ccf9c5d37b37b)
+        ;
+
+        
+    
+    
+                marker_6bedf6c315a0d803cbb34368cf5f6a0d.setIcon(icon_82e4e28a2cd7f03f7f7352479f6b70e8);
+            
+    
+            var marker_0c82f169c329926bc044295238362ad0 = L.marker(
+                [40.686573, 23.206661],
+                {
+}
+            ).addTo(feature_group_8d2c28839c68debd5680a37c944b6952);
+        
+    
+            var icon_6ccca4655f152460b1d7c2b511a12bf8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9aea5abaf6366a19532c530c9858fbe7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d0068de53e519442cc3ca0da6e93b96b = $(`<div id="html_d0068de53e519442cc3ca0da6e93b96b" style="width: 100.0%; height: 100.0%;"><b>Οικονομικές επιπτώσεις</b><br>Οι δραστηριότητες στην αλιεία, τη γεωργία και τον οικοτουρισμό έχουν πληγεί, επηρεάζοντας αρνητικά τις τοπικές κοινότητες.</div>`)[0];
+                popup_9aea5abaf6366a19532c530c9858fbe7.setContent(html_d0068de53e519442cc3ca0da6e93b96b);
+            
+        
+
+        marker_0c82f169c329926bc044295238362ad0.bindPopup(popup_9aea5abaf6366a19532c530c9858fbe7)
+        ;
+
+        
+    
+    
+                marker_0c82f169c329926bc044295238362ad0.setIcon(icon_6ccca4655f152460b1d7c2b511a12bf8);
+            
+    
+            feature_group_8d2c28839c68debd5680a37c944b6952.addTo(map_09653409331c2a31220945a2641694e0);
+        
+    
+            var layer_control_abee3cbf5189c2be6c12fe7fab7fd32b_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_1bd449ec460c668bf4e1b00156a1d23b,
+                },
+                overlays :  {
+                    "\u0391\u03af\u03c4\u03b9\u03b1 \u03a5\u03c0\u03bf\u03b2\u03ac\u03b8\u03bc\u03b9\u03c3\u03b7\u03c2" : feature_group_ccaf0ed919642c5f7e625ad4596bc2f9,
+                    "\u03a0\u03b5\u03c1\u03b9\u03b2\u03b1\u03bb\u03bb\u03bf\u03bd\u03c4\u03b9\u03ba\u03ad\u03c2 \u0395\u03c0\u03b9\u03c0\u03c4\u03ce\u03c3\u03b5\u03b9\u03c2" : feature_group_8d2c28839c68debd5680a37c944b6952,
+                },
+            };
+            let layer_control_abee3cbf5189c2be6c12fe7fab7fd32b = L.control.layers(
+                layer_control_abee3cbf5189c2be6c12fe7fab7fd32b_layers.base_layers,
+                layer_control_abee3cbf5189c2be6c12fe7fab7fd32b_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_09653409331c2a31220945a2641694e0);
+
+        
+</script>
+</html>
